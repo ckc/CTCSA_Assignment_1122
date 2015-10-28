@@ -7,8 +7,8 @@ package WLTS;
 
 /**
  *
- * @author ckc
+ * @author jackh
  */
-public class VIP {
+public class VIP extends Client {
     
 }
