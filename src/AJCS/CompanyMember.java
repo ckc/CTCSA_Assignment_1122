@@ -5,14 +5,18 @@
  */
 package AJCS;
 
+import java.util.Date;
+import java.util.Vector;
+
 /**
  *
  * @author jackh
  */
 public class CompanyMember extends Member {
-
-    public CompanyMember(String id, String name, String postal, String type) {
-        super(id, name, postal, type);
+    public Vector<Member> member;
+    
+    public CompanyMember(String id, String type, String name, String postal,Date goodTill) {
+        super(id, type, name, postal,goodTill);
     }
 
     public boolean validate(String id) {

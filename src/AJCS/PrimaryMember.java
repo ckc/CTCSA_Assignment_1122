@@ -4,15 +4,16 @@
  * and open the template in the editor.
  */
 package AJCS;
-
+import java.util.Date;
+import java.util.Vector;
 /**
  *
  * @author jackh
  */
 public class PrimaryMember extends Member {
-
-    public PrimaryMember(String id, String name, String postal, String type) {
-        super(id, name, postal, type);
+     public Vector<Member> member;
+    public PrimaryMember(String id, String type, String name, String postal,Date goodTill) {
+        super(id, type, name, postal,goodTill);
     }
 
     public boolean validate(String id) {

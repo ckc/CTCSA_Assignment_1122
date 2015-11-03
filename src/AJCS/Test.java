@@ -10,6 +10,8 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.Vector;
 
+
+
 /**
  *
  * @author jackh
@@ -31,28 +33,9 @@ public class Test {
         String line = br.readLine();
         switch (line) {
             case "c":
-                System.out.println("Enter Company Code (ajcs/wlts): ");
-                String c = br.readLine();
-                    if ("ajcs".equals(c)) {
-                        System.out.println("Enter id;type;name;address:");
-                        //call member class
-                        String Cinput = br.readLine() ;
-                        String []split = Cinput.split(";");
-                        Member m1 = new CompanyMember(split[0],split[1],split[2],split[3]);
-                      
-                       
-                        System.out.println("New member record created");
-                            
-                    } else if ("wlts".equals(c)) {
-                        System.out.println("Enter id;type;name;address:");
-                        //create method
-
-                        System.out.println("New member record created");
-
-                    } else if (c != "wlts" || c != "ajcs") {
-                        System.out.println("You can only type in  \"ajcs\" or \"wlts\"  ");
-                    }
-
+                Command cmd;
+                cmd = new CreateCommand();
+                cmd.execute();
                 break;
             case "s":
                 System.out.println("s= show membership detail");
@@ -72,12 +55,12 @@ public class Test {
             case "l":
                 System.out.println("l = list undo/redo");
                 break;
+
             default:
                 System.out.println("assignment");
                 break;
         }
-        
-        
+
     }
 
 }

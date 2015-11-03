@@ -3,12 +3,17 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package WLTS;
+package AJCS;
+
+import AJCS.Commandline.*;
 
 /**
  *
  * @author jackh
  */
-public class  Client {
-    
+public interface Command {
+
+    public void execute();
+    public void undo();
+    public void redo();
 }
