@@ -18,66 +18,59 @@ public class Test {
 
     public static void main(String[] args) throws Exception {
         // TODO code application logic here
-        Vector AJCS_mem = new Vector();
+        Vector<Member> AJCS_mem = new Vector<Member>();
         boolean cont = true;
         InputStreamReader is = new InputStreamReader(System.in);
         BufferedReader br = new BufferedReader(is);
+       
+        while (true) {
+            System.out.println("X Mem Management System");
+            System.out.println("Please Enter Command: [c | s | a | e | u | r | l | X]\n"
+                    + "c = create membership, s = show membership details, a = update address, e = extend membership, u\n"
+                    + "= undo, r = redo, l = list undo/redo, X = eXit system");
 
-        System.out.println("X Mem Management System");
-        System.out.println("Please Enter Command: [c | s | a | e | u | r | l | X]\n"
-                + "c = create membership, s = show membership details, a = update address, e = extend membership, u\n"
-                + "= undo, r = redo, l = list undo/redo, X = eXit system");
+            String line = br.readLine();
+            switch (line) {
+                case "c":
+                case "C":
+                    Command cmd;
+                    cmd = new CreateCommand(AJCS_mem);
+                    cmd.execute();
+                    break;
+                case "s":
+                case "S":
+                    Command Scmd;
+                    Scmd = new ShowCommand(AJCS_mem);
+                    Scmd.execute();
+                    break;
+                case "a":
+                case "A":    
+                    System.out.println(" a = update address");
+                    break;
+                case "e":
+                case "E":    
+                    System.out.println(" e = extend membership");
+                    break;
+                case "u":
+                case "U":    
+                    System.out.println(" u = undo");
+                    break;
+                case "r":
+                case "R":    
+                    System.out.println(" r = redo");
+                    break;
+                case "l":
+                case "L":   
+                    System.out.println("l = list undo/redo");
+                    break;
 
-        String line = br.readLine();
-        switch (line) {
-            case "c":
-                System.out.println("Enter Company Code (ajcs/wlts): ");
-                String c = br.readLine();
-                    if ("ajcs".equals(c)) {
-                        System.out.println("Enter id;type;name;address:");
-                        //call member class
-                        String Cinput = br.readLine() ;
-                        String []split = Cinput.split(";");
-                        Member m1 = new CompanyMember(split[0],split[1],split[2],split[3]);
-                      
-                       
-                        System.out.println("New member record created");
-                            
-                    } else if ("wlts".equals(c)) {
-                        System.out.println("Enter id;type;name;address:");
-                        //create method
-
-                        System.out.println("New member record created");
-
-                    } else if (c != "wlts" || c != "ajcs") {
-                        System.out.println("You can only type in  \"ajcs\" or \"wlts\"  ");
-                    }
-
-                break;
-            case "s":
-                System.out.println("s= show membership detail");
-                break;
-            case "a":
-                System.out.println(" a = update address");
-                break;
-            case "e":
-                System.out.println(" e = extend membership");
-                break;
-            case "u":
-                System.out.println(" u = undo");
-                break;
-            case "r":
-                System.out.println(" r = redo");
-                break;
-            case "l":
-                System.out.println("l = list undo/redo");
-                break;
-            default:
-                System.out.println("assignment");
-                break;
+                default:
+                    System.out.println("Error in the type in data");
+                    break;
+                    
+            }
         }
-        
-        
+     
     }
-
+    
 }

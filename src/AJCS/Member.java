@@ -7,46 +7,57 @@ package AJCS;
 
 import java.util.Date;
 
+import java.text.*;
+
 /**
  *
  * @author jackh
  */
+import java.text.DateFormat;
+
 public abstract class Member {
-        private String id;
-        private Date goodTill;
-        private String name;
-        private String postal;
-        
-        //TYPE 唔洗加?
-        private String type;
-    
+
+    private String id;
+    private String name;
+    private String postal;
+    private Date goodTill;
+
+    //TYPE 唔洗加?
+    private String type;
+
 //constractor
-    public Member(String id, String name, String postal, String type) {
+    public Member(String id, String type, String name, String postal) {
+
         this.id = id;
+        this.type = type;
         this.name = name;
         this.postal = postal;
+
+    }
+
+    public Member(String id, String type, String name, String postal, Date goodTill) {
+
+        this.id = id;
         this.type = type;
-    }
-        
-    public abstract boolean validate (String id);
-    
-    public String getId(){
-        return id;
-    }
-    public void setId(String sid){
-        this.id = sid;
-    } 
-    
-    public Date getGoodTill(){
-        return goodTill;    
-    }
-    public void setGoodTill(Date goodTill) {
+        this.name = name;
+        this.postal = postal;
         this.goodTill = goodTill;
     }
-    
+
+    public abstract boolean validate(String id);
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String sid) {
+        this.id = sid;
+    }
+
     public String getName() {
         return name;
     }
+
     public void setName(String name) {
         this.name = name;
     }
@@ -54,9 +65,10 @@ public abstract class Member {
     public String getPostal() {
         return postal;
     }
-      public void setPostal(String postalAddress) {
+
+    public void setPostal(String postalAddress) {
         this.postal = postalAddress;
-        
+
     }
 
     public String getType() {
@@ -66,5 +78,25 @@ public abstract class Member {
     public void setType(String type) {
         this.type = type;
     }
-    
+
+    public Date getGoodTill() {
+        Date myDate = new Date();
+        new SimpleDateFormat("dd-MM-yyyy").format(myDate);
+        return myDate;
+    }
+
+    public Date setGoodTill(Date goodTill) {
+
+        Date myDate = new Date();
+        new SimpleDateFormat("dd-MM-yyyy").format(myDate);
+         
+        return myDate;
+
+    }
+
+    @Override
+    public String toString() {
+        return goodTill + "  " + id + " " + type + "  " + name + "  " + postal;
+    }
+
 }

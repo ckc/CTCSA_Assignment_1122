@@ -9,6 +9,6 @@ package WLTS;
  *
  * @author jackh
  */
-public class Client {
+public class  Client {
     
 }
