@@ -5,6 +5,7 @@
  */
 package AJCS;
 
+import java.time.LocalDate;
 import java.util.Date;
 import java.util.Vector;
 
@@ -19,12 +20,12 @@ public class CompanyMember extends Member {
         super(id, type, name, postal);
     }
     
-    public CompanyMember(Date goodTill,String id, String type, String name, String postal) {
+  /*  public CompanyMember(Date goodTill,String id, String type, String name, String postal) throws Exception {
         super(id, type, name, postal);
         setGoodTill(goodTill);
          
         
-    }
+    }*/
 
   public boolean validate(String id) {
         int sum = 0;

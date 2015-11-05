@@ -9,11 +9,12 @@ import AJCS.Commandline.*;
 import java.io.*;
 import java.util.*;
 
+
 /**
  *
  * @author jackh
  */
-public class ShowCommand implements Command {
+public class ShowCommand implements Command{
 
     Vector<Member> member;
 
@@ -50,17 +51,18 @@ public class ShowCommand implements Command {
                         System.out.println("Member information");
                         System.out.println("ID:" + m1.getId());
                         System.out.println("Type: " + m1.getType());
-                        System.out.println("Name: " + m1.getName() + "\n Address: " + m1.getPostal());
-                        System.out.println("Expire date: " + m1.getGoodTill());
+                        System.out.println("Name: " + m1.getName());
+                        System.out.println("Address: " + m1.getPostal());
+                        System.out.println("Expire date(DD-MM-YYYY): " + m1.getGoodTill());
 
                         break;
                     }
                 }
             }
-        } catch (IOException e) {
+        } catch (Exception e) {
             e.printStackTrace();
         }
-        System.out.println("-----------------------------------------------------");
+        System.out.println("                                                    ");
     }
 
     @Override

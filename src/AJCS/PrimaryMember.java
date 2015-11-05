@@ -4,6 +4,7 @@
  * and open the template in the editor.
  */
 package AJCS;
+import java.time.LocalDate;
 import java.util.Date;
 import java.util.Vector;
 /**
@@ -13,15 +14,16 @@ import java.util.Vector;
 public class PrimaryMember extends Member {
      public Vector<Member> member;
     public PrimaryMember(String id, String type, String name, String postal) {
+        
         super(id, type, name, postal);
     }
-     public PrimaryMember(Date goodTill,String id, String type, String name, String postal) {
+ /*    public PrimaryMember(Date goodTill,String id, String type, String name, String postal)throws Exception {
         super(id, type, name, postal);
         setGoodTill(goodTill);
          
         
     }
-
+*/
 public boolean validate(String id) {
         int sum = 0;
         String numbers[] = id.split("");

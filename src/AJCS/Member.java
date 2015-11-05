@@ -5,16 +5,13 @@
  */
 package AJCS;
 
-import java.util.Date;
 
-import java.text.*;
-
+import java.util.*;
+import java.util.GregorianCalendar;
 /**
  *
  * @author jackh
  */
-import java.text.DateFormat;
-
 public abstract class Member {
 
     private String id;
@@ -25,25 +22,25 @@ public abstract class Member {
     //TYPE 唔洗加?
     private String type;
 
-//constractor
+//constractor 假設無入goodtill 就自動加goodTill
     public Member(String id, String type, String name, String postal) {
-
+        setGoodTill(goodTill);
         this.id = id;
         this.type = type;
         this.name = name;
         this.postal = postal;
 
     }
-
-    public Member(String id, String type, String name, String postal, Date goodTill) {
-
+/*
+    public Member(String id, String type, String name, String postal, Date goodTill)  {
+        setGoodTill(goodTill);
         this.id = id;
         this.type = type;
         this.name = name;
         this.postal = postal;
-        this.goodTill = goodTill;
+        
     }
-
+*/
     public abstract boolean validate(String id);
 
     public String getId() {
@@ -77,21 +74,26 @@ public abstract class Member {
 
     public void setType(String type) {
         this.type = type;
+
     }
 
     public Date getGoodTill() {
-        Date myDate = new Date();
-        new SimpleDateFormat("dd-MM-yyyy").format(myDate);
-        return myDate;
+       Date d1 = new Date();
+        int day = d1.getDate();  
+        int month = d1.getMonth();
+        int year = d1.getYear();
+        
+        return d1;
     }
 
-    public Date setGoodTill(Date goodTill) {
-
-        Date myDate = new Date();
-        new SimpleDateFormat("dd-MM-yyyy").format(myDate);
+    public void setGoodTill(Date goodTill) {
+        Date d1 = new Date();
+            int day = d1.getDate();  
+            int month = d1.getMonth();
+            int year = d1.getYear();
+            
+            this.goodTill  = d1;
          
-        return myDate;
-
     }
 
     @Override

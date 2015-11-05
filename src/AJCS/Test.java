@@ -8,7 +8,9 @@ package AJCS;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+
 import java.util.Vector;
+
 
 /**
  *
@@ -22,7 +24,7 @@ public class Test {
         boolean cont = true;
         InputStreamReader is = new InputStreamReader(System.in);
         BufferedReader br = new BufferedReader(is);
-       
+
         while (true) {
             System.out.println("X Mem Management System");
             System.out.println("Please Enter Command: [c | s | a | e | u | r | l | X]\n"
@@ -44,33 +46,33 @@ public class Test {
                     Scmd.execute();
                     break;
                 case "a":
-                case "A":    
+                case "A":
                     System.out.println(" a = update address");
                     break;
                 case "e":
-                case "E":    
+                case "E":
                     System.out.println(" e = extend membership");
                     break;
                 case "u":
-                case "U":    
+                case "U":
                     System.out.println(" u = undo");
                     break;
                 case "r":
-                case "R":    
+                case "R":
                     System.out.println(" r = redo");
                     break;
                 case "l":
-                case "L":   
+                case "L":
                     System.out.println("l = list undo/redo");
                     break;
 
                 default:
                     System.out.println("Error in the type in data");
                     break;
-                    
+
             }
         }
-     
+
     }
-    
+
 }
