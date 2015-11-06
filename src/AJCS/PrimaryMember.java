@@ -4,7 +4,7 @@
  * and open the template in the editor.
  */
 package AJCS;
-import java.time.LocalDate;
+import java.*;
 import java.util.Date;
 import java.util.Vector;
 /**
@@ -13,7 +13,7 @@ import java.util.Vector;
  */
 public class PrimaryMember extends Member {
      public Vector<Member> member;
-    public PrimaryMember(String id, String type, String name, String postal) {
+    public PrimaryMember(String id, String type, String name, String postal)throws Exception {
         
         super(id, type, name, postal);
     }
