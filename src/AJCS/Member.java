@@ -5,11 +5,9 @@
  */
 package AJCS;
 
-import java.time.LocalDateTime;
-import java.util.*;
-import java.text.*;
-import java.*;
 
+import java.util.*;
+import java.util.GregorianCalendar;
 /**
  *
  * @author jackh
@@ -25,7 +23,7 @@ public abstract class Member {
     private String type;
 
 //constractor 假設無入goodtill 就自動加goodTill
-    public Member(String id, String type, String name, String postal) throws Exception {
+    public Member(String id, String type, String name, String postal) {
         setGoodTill(goodTill);
         this.id = id;
         this.type = type;
@@ -33,17 +31,16 @@ public abstract class Member {
         this.postal = postal;
 
     }
-    /*
-     public Member(String id, String type, String name, String postal, Date goodTill)  {
-     setGoodTill(goodTill);
-     this.id = id;
-     this.type = type;
-     this.name = name;
-     this.postal = postal;
+/*
+    public Member(String id, String type, String name, String postal, Date goodTill)  {
+        setGoodTill(goodTill);
+        this.id = id;
+        this.type = type;
+        this.name = name;
+        this.postal = postal;
         
-     }
-     */
-
+    }
+*/
     public abstract boolean validate(String id);
 
     public String getId() {
@@ -80,40 +77,23 @@ public abstract class Member {
 
     }
 
-    public Date getGoodTill() throws Exception {
-
-        String pattern = "MMddyyyy";
-        SimpleDateFormat format = new SimpleDateFormat(pattern);
-        String dateString = format.format(new Date());
-        Date d1 = new Date();
-             d1.getYear();
+    public Date getGoodTill() {
+       Date d1 = new Date();
+        int day = d1.getDate();  
+        int month = d1.getMonth();
+        int year = d1.getYear();
+        
         return d1;
     }
 
-    public void setGoodTill(Date goodTill) throws Exception {
-        try {
-            Calendar calendar = Calendar.getInstance();
-
-            DecimalFormat tf = new DecimalFormat("#0");
-            DecimalFormat tflz = new DecimalFormat("00");
-
-            StringBuffer buf = new StringBuffer();
-            Date date = new Date();
-
-            buf.append(tf.format(calendar.get(Calendar.DATE)));
-            buf.append('-');
-            buf.append(tflz.format(calendar.get(Calendar.DAY_OF_MONTH)));
-            buf.append('-');
-            buf.append(tflz.format(calendar.get(Calendar.YEAR)));
-            DateFormat format = new SimpleDateFormat("dd-MM-yyyy");
-            DateFormat format1 = new SimpleDateFormat("dd-MM-yyyy");
-            format1.format(date);
-            this.goodTill = date;
-
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-
+    public void setGoodTill(Date goodTill) {
+        Date d1 = new Date();
+            int day = d1.getDate();  
+            int month = d1.getMonth();
+            int year = d1.getYear();
+            
+            this.goodTill  = d1;
+         
     }
 
     @Override

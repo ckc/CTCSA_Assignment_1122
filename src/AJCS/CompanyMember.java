@@ -5,7 +5,7 @@
  */
 package AJCS;
 
-import java.*;
+import java.time.LocalDate;
 import java.util.Date;
 import java.util.Vector;
 
@@ -16,7 +16,7 @@ import java.util.Vector;
 public class CompanyMember extends Member {
     public Vector<Member> member;
     
-     public CompanyMember(String id, String type, String name, String postal)throws Exception {
+     public CompanyMember(String id, String type, String name, String postal) {
         super(id, type, name, postal);
     }
     
