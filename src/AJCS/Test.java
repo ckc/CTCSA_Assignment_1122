@@ -26,6 +26,7 @@ public class Test {
         BufferedReader br = new BufferedReader(is);
 
         while (true) {
+            try{
             System.out.println("X Mem Management System");
             System.out.println("Please Enter Command: [c | s | a | e | u | r | l | X]\n"
                     + "c = create membership, s = show membership details, a = update address, e = extend membership, u\n"
@@ -71,6 +72,9 @@ public class Test {
                     break;
 
             }
+        } catch(Exception e){
+            e.printStackTrace();
+        }
         }
 
     }
