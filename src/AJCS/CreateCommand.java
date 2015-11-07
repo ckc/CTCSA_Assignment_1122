@@ -71,7 +71,7 @@ public class CreateCommand implements Command {
                 System.out.println("You can only type in  \"ajcs\" or \"wlts\"  ");
             }
 
-        } catch (IOException e) {
+        } catch (Exception e) {
             e.printStackTrace();
         }
         System.out.println("-----------------------------------------------------");
