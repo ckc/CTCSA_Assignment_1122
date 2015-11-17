@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package AJCS;
+package Xmem;
 
 import java.util.*;
 import java.io.*;
@@ -14,29 +14,27 @@ import java.io.*;
  */
 public class AdvancedMem {
 
-    private String Member[];
+    private Member[] members;
 
-    public Member createMem() {
+    public Member createMem() throws Exception {
         return null;
+
     }
 
     public Member searchMem(String id) {
-        //retrun Member.getId();
         return null;
     }
 
-    public Member updateAddress(String id) {
-        return null;
+    public void updateAddress(String id) {
+
     }
 
-    public Member extendGoodTill(String id) {
-        return null;
+    public void extendGoodTill(String id) {
+
     }
 
     public boolean stillGood(String id) {
         return true;
     }
-
- 
 
 }

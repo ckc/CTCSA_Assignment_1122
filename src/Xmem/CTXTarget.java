@@ -3,17 +3,14 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package AJCS;
-
-import AJCS.Commandline.*;
+package Xmem;
 
 /**
  *
  * @author jackh
  */
-public interface Command {
+public interface CTXTarget {
 
-    public void execute();
-    public void undo();
-    public void redo();
+    abstract public void request() throws Exception;
+
 }

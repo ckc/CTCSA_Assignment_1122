@@ -3,17 +3,30 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package AJCS.Commandline;
-import java.io.*;
-import java.util.*;
+package CommandDraft;
+
+import Xmem.Client;
+import Xmem.Member;
+import java.util.Vector;
+
 /**
  *
  * @author jackh
  */
-public class UpdateAddressCmd implements Command{
+public class UndoCommand implements Xmem.Command {
+
+    public Vector<Member> member;
+    public Vector<Client> clients;
+
+    public UndoCommand(Vector<Member> member, Vector<Client> clients) {
+        this.member = member;
+        this.clients = clients;
+    }
+
+   
 
     @Override
-    public void execute() {
+    public void execute() throws Exception {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 

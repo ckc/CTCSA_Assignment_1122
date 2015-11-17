@@ -3,9 +3,8 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package AJCS;
+package Xmem;
 
-import java.time.LocalDateTime;
 import java.util.*;
 import java.text.*;
 import java.*;
@@ -20,29 +19,16 @@ public abstract class Member {
     private String name;
     private String postal;
     private Date goodTill;
+    public Vector<Member> Xmem;
+      
+    public Member(String id, Date goodTill, String name, String postal) {
 
-    //TYPE 唔洗加?
-    private String type;
-
-//constractor 假設無入goodtill 就自動加goodTill
-    public Member(String id, String type, String name, String postal) throws Exception {
-        setGoodTill(goodTill);
         this.id = id;
-        this.type = type;
+        this.goodTill = goodTill;
         this.name = name;
         this.postal = postal;
 
     }
-    /*
-     public Member(String id, String type, String name, String postal, Date goodTill)  {
-     setGoodTill(goodTill);
-     this.id = id;
-     this.type = type;
-     this.name = name;
-     this.postal = postal;
-        
-     }
-     */
 
     public abstract boolean validate(String id);
 
@@ -71,54 +57,33 @@ public abstract class Member {
 
     }
 
-    public String getType() {
-        return type;
-    }
-
-    public void setType(String type) {
-        this.type = type;
-
-    }
-
+    
     public Date getGoodTill() throws Exception {
 
-        String pattern = "MMddyyyy";
-        SimpleDateFormat format = new SimpleDateFormat(pattern);
-        String dateString = format.format(new Date());
-        Date d1 = new Date();
-             d1.getYear();
-        return d1;
+        Date date = new Date();
+        Calendar cal = Calendar.getInstance();
+        cal.setTime(date);
+        cal.add(Calendar.YEAR, 2);
+
+        java.util.Date expirationDate = cal.getTime();
+
+        return expirationDate;
     }
 
     public void setGoodTill(Date goodTill) throws Exception {
-        try {
-            Calendar calendar = Calendar.getInstance();
+        Date date = new Date();
+        Calendar cal = Calendar.getInstance();
+        cal.setTime(date);
+        cal.add(Calendar.YEAR, 2);
 
-            DecimalFormat tf = new DecimalFormat("#0");
-            DecimalFormat tflz = new DecimalFormat("00");
+        java.util.Date expirationDate = cal.getTime();
 
-            StringBuffer buf = new StringBuffer();
-            Date date = new Date();
-
-            buf.append(tf.format(calendar.get(Calendar.DATE)));
-            buf.append('-');
-            buf.append(tflz.format(calendar.get(Calendar.DAY_OF_MONTH)));
-            buf.append('-');
-            buf.append(tflz.format(calendar.get(Calendar.YEAR)));
-            DateFormat format = new SimpleDateFormat("dd-MM-yyyy");
-            DateFormat format1 = new SimpleDateFormat("dd-MM-yyyy");
-            format1.format(date);
-            this.goodTill = date;
-
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
+        this.goodTill = expirationDate;
 
     }
-
     @Override
     public String toString() {
-        return goodTill + "  " + id + " " + type + "  " + name + "  " + postal;
+        return id + "  " + name + "  " + postal;
     }
 
 }

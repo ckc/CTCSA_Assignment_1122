@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package AJCS;
+package Xmem;
 
 import java.util.Date;
 import java.util.Vector;
@@ -14,17 +14,31 @@ import java.util.Vector;
  */
 public class VIP extends Client {
 
-    public Vector<Client> clients;
-
-    public VIP(int cid,String type,String fullName,String homeAddress) {
-         super(cid,type ,fullName, homeAddress);
-         setExpiryDate();
-       
+    public VIP(int cid, String fullName, Date expiryDate, String homeAddress) {
+        super(cid, fullName, expiryDate, homeAddress);
     }
 
+    public boolean validate(Client cid) {
+        int sum = 0;
+        String c1 = cid.toString();
+        String clients[] = c1.split("");
 
-    
-    public boolean valiadte(Client id){
-        return true;
+        if (clients.length <= 9) {
+            for (int i = 0; i < clients.length; i++) {
+                int num = Integer.parseInt(clients[i]);
+                while (num > 0) {
+                    //The VIP number is started with digit '3'
+                    sum += num % 10;
+                    num /= 10;
+                }
+            }
+            if (sum % 6 == 0) {
+                return true;
+            } else {
+                return false;
+            }
+        } else {
+            return false;
+        }
     }
 }

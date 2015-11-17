@@ -3,9 +3,10 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package AJCS;
+package Xmem;
 
 import java.util.Date;
+import java.util.Vector;
 
 /**
  *
@@ -18,63 +19,54 @@ public abstract class Client {
     private String fullName;
     private String homeAddress;
 
-    private String type;
+    public Vector<Member> Xmem;
 
-    public Client(int cid, String type, String fullName, String homeAddress) {
+    public Client(int cid, String fullName, Date expiryDate, String homeAddress) {
         this.cid = cid;
-        this.type = type;
         this.fullName = fullName;
-        this.homeAddress = homeAddress;
         this.expiryDate = expiryDate;
+        this.homeAddress = homeAddress;
     }
+
+    public abstract boolean validate(Client id);
 
     public int getCid() {
         return cid;
-    }
-
-    public Date getExpiryDate() {
-        return expiryDate;
-    }
-
-    public String getFullName() {
-        return fullName;
-    }
-
-    public String getHomeAddress() {
-        return homeAddress;
-    }
-
-    public String getType() {
-        return type;
     }
 
     public void setCid(int cid) {
         this.cid = cid;
     }
 
-    public void setFullName(String fullName) {
+    public Date getExpiryDate() {
+        return expiryDate;
+    }
+
+    public void setExpiryDate(Date ex) {
+        //ex ??
+        Date d1 = new Date();
+        this.expiryDate = d1;
+    }
+
+    public String getlName() {
+        return fullName;
+    }
+
+    public void setName(String fullName) {
         this.fullName = fullName;
     }
 
-    public void setHomeAddress(String homeAddress) {
-        this.homeAddress = homeAddress;
+    public String getHomeAddress() {
+        return homeAddress;
     }
 
-    public void setType(String type) {
-        this.type = type;
+    public void setHomeAddress(String ha) {
+        this.homeAddress = ha;
     }
-    
-    public void setExpiryDate() {
-        Date d1 = new Date();
-
-        this.expiryDate = d1;
-    }
-    
-    public abstract boolean valiadte(Client id);
 
     @Override
     public String toString() {
-        return "Client{" + "cid=" + cid + ", expiryDate=" + expiryDate + ", fullName=" + fullName + ", homeAddress=" + homeAddress + ", type=" + type + '}';
+        return "Client{" + "cid=" + cid + ", expiryDate=" + expiryDate + ", fullName=" + fullName + ", homeAddress=" + homeAddress + '}';
     }
 
 }

@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package AJCS;
+package Xmem;
 
 import java.*;
 import java.util.Date;
@@ -14,23 +14,14 @@ import java.util.Vector;
  * @author jackh
  */
 public class CompanyMember extends Member {
-    public Vector<Member> member;
-    
-     public CompanyMember(String id, String type, String name, String postal)throws Exception {
-        
-         super(id, type, name, postal);
-         Date d1 = new Date();
-         setGoodTill(d1);
-    }
-    
-  /*  public CompanyMember(Date goodTill,String id, String type, String name, String postal) throws Exception {
-        super(id, type, name, postal);
-        setGoodTill(goodTill);
-         
-        
-    }*/
 
-  public boolean validate(String id) {
+    public Vector<Member> member;
+
+    public CompanyMember(String id, Date goodTill, String name, String postal) {
+        super(id, goodTill, name, postal);
+    }
+
+    public boolean validate(String id) {
         int sum = 0;
         String numbers[] = id.split("");
         if (numbers.length <= 8) {
@@ -46,12 +37,12 @@ public class CompanyMember extends Member {
             } else {
                 return false;
             }
-        }else {
+        } else {
             return false;
         }
     }
-        //The sum of all digits (include check digit) of 
-        //company membership number modulo 8 is zero. 
-        //The validate() method of PrimaryMember and the Company classes will 
-        //check the id is valid or not.  
+    //The sum of all digits (include check digit) of 
+    //company membership number modulo 8 is zero. 
+    //The validate() method of PrimaryMember and the Company classes will 
+    //check the id is valid or not.  
 }

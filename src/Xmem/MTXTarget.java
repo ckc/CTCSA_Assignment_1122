@@ -5,17 +5,16 @@
  */
 package Xmem;
 
-
+import java.util.Date;
 
 /**
  *
  * @author jackh
  */
-public interface Command {
+public interface MTXTarget {
 
-    public void execute()throws Exception;
-    public void undo();
-    public void redo();
-    
-    
+    abstract public void request() throws Exception;
+
+    public void request(String string, Date date, Date date0, String string0, String string1);
+
 }

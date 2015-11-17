@@ -5,17 +5,14 @@
  */
 package Xmem;
 
-
+import java.util.Vector;
 
 /**
  *
  * @author jackh
  */
-public interface Command {
-
-    public void execute()throws Exception;
-    public void undo();
-    public void redo();
+public interface CTXAdaptee {
     
     
+    public Xmem request()throws Exception;
 }

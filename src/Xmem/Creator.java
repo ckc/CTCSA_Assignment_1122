@@ -3,15 +3,12 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package AJCS.Commandline;
+package Xmem;
 
 /**
  *
  * @author jackh
  */
-public interface Command {
-
-    public void execute();
-    public void undo();
-    public void redo();
+public abstract class Creator {
+    public abstract Command createCmd();
 }

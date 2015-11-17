@@ -5,17 +5,10 @@
  */
 package Xmem;
 
-
-
 /**
  *
  * @author jackh
  */
-public interface Command {
-
-    public void execute()throws Exception;
-    public void undo();
-    public void redo();
-    
-    
+public interface MTXAdaptee {
+    public Xmem request()throws Exception;
 }

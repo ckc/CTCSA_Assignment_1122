@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package AJCS;
+package Xmem;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -16,16 +16,22 @@ import java.util.Vector;
  *
  * @author jackh
  */
-public class Test {
+public class Main {
 
     public static void main(String[] args) throws Exception {
         // TODO code application logic here
-        Vector<Member> AJCSmem = new Vector<Member>();
-        Vector<Client> WLTSmem = new Vector<Client>();
+        Vector<Xmem> xmem = new Vector<Xmem>();
+        //Vector<Client> WLTSmem = new Vector<Client>();
         boolean cont = true;
         InputStreamReader is = new InputStreamReader(System.in);
         BufferedReader br = new BufferedReader(is);
-
+        
+        Command cmd;
+        Creator Creators[] = {new CreateMemCommandCreator(xmem)
+            
+        };
+        
+        
         while (true) {
             System.out.println("X Mem Management System");
             System.out.println("Please Enter Command: [c | s | a | e | u | r | l | X]\n"
@@ -33,22 +39,24 @@ public class Test {
                     + "= undo, r = redo, l = list undo/redo, X = eXit system");
 
             String line = br.readLine();
+            
             switch (line) {
                 case "c":
                 case "C":
-                    Command cmd;
-                    cmd = new CreateCommand(AJCSmem,WLTSmem);
+                    cmd = Creators[0].createCmd();
                     cmd.execute();
                     break;
                 case "s":
                 case "S":
                     Command Scmd;
-                    Scmd = new ShowCommand(AJCSmem,WLTSmem);
-                    Scmd.execute();
+                  //  Scmd = new ShowMemCommand(mem);
+                    //Scmd.execute();
                     break;
                 case "a":
                 case "A":
-                    System.out.println(" a = update address");
+                    Command Ucmd;
+                  //  Ucmd = new UpdateAddressCommand(mem);
+                    //Ucmd.execute();
                     break;
                 case "e":
                 case "E":

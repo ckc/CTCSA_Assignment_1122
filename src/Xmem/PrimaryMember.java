@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package AJCS;
+package Xmem;
 
 import java.*;
 import java.util.Date;
@@ -15,22 +15,11 @@ import java.util.Vector;
  */
 public class PrimaryMember extends Member {
 
-    public Vector<Member> member;
-
-    public PrimaryMember(String id, String type, String name, String postal) throws Exception {
-
-        super(id, type, name, postal);
-        Date d1 = new Date();
-        setGoodTill(d1);
+    public PrimaryMember(String id, Date goodTill, String name, String postal) {
+        super(id, goodTill, name, postal);
     }
 
-    /*    public PrimaryMember(Date goodTill,String id, String type, String name, String postal)throws Exception {
-        super(id, type, name, postal);
-        setGoodTill(goodTill);
-         
-        
-    }
-     */
+    
     public boolean validate(String id) {
         int sum = 0;
         String numbers[] = id.split("");
