@@ -26,9 +26,12 @@ public class Xmem {
     public String homeAddress;
 
     public Date expiryDate;
-    
+
     public Vector<Member> Xmem;
     
+    public Xmem(){
+        
+    }
     public Xmem(int cid, String type, String fullName, String homeAddress) {
         this.cid = cid;
         this.type = type;
@@ -36,6 +39,7 @@ public class Xmem {
         this.homeAddress = homeAddress;
         getExpiryDate();
     }
+    
 
     public int getCid() {
         return cid;
@@ -68,8 +72,6 @@ public class Xmem {
     public String getHomeAddress() {
         return homeAddress;
     }
-    
-    
 
     public Date getExpiryDate() {
 
@@ -94,4 +96,99 @@ public class Xmem {
         this.expiryDate = expirationDate;
     }
 
+    public boolean validateVIPF(int cid) {
+        
+            int sum = 0;
+            String clients[] = Integer.toString(cid).split("");
+
+            if (clients.length <= 9) {
+                for (int i = 0; i < clients.length; i++) {
+                    int num = Integer.parseInt(clients[i]);
+                    while (num > 0) {
+                        //The VIP_Family number is started with 3 fix digits “303”. 
+                        sum += num % 10;
+                        num /= 10;
+                    }
+                }
+                if (sum % 6 == 0) {
+                    return true;
+                } else {
+                    return false;
+                }
+            } else {
+                return false;
+            }
+        
+    }
+
+    public boolean validateVIP(int cid) {
+        int sum = 0;
+        String clients[] = Integer.toString(cid).split("");
+
+        if (clients.length <= 9) {
+            for (int i = 0; i < clients.length; i++) {
+                int num = Integer.parseInt(clients[i]);
+                while (num > 0) {
+                    //The VIP_Family number is started with 3 fix digits “303”. 
+                    sum += num % 10;
+                    num /= 10;
+                }
+            }
+            if (sum % 6 == 0) {
+                return true;
+            } else {
+                return false;
+            }
+        } else {
+            return false;
+        }
+    }
+
+    public boolean validateCompanyMember(String id) {
+        int sum = 0;
+        String numbers[] = id.split("");
+        if (numbers.length <= 8) {
+            for (int i = 0; i < numbers.length; i++) {
+                int num = Integer.parseInt(numbers[i]);
+                while (num > 0) {
+                    sum += num % 10;
+                    num /= 10;
+                }
+            }
+            if (sum % 8 == 0) {
+                return true;
+            } else {
+                return false;
+            }
+        } else {
+            return false;
+        }
+    }
+     public boolean validatePrimaryMember(String id) {
+        int sum = 0;
+        String numbers[] = id.split("");
+        if (numbers.length <= 8) {
+            for (int i = 0; i < numbers.length; i++) {
+                int num = Integer.parseInt(numbers[i]);
+                while (num > 0) {
+                    sum += num % 10;
+                    num /= 10;
+                }
+            }
+            if (sum % 3 == 0) {
+                return true;
+            } else {
+                return false;
+            }
+        } else {
+            return false;
+        }
+    }
+
+    @Override
+    public String toString() {
+        return ""+expiryDate+" "+ cid + " " + type + " " + fullName + " " + homeAddress  ;
+    }
+    
+    
 }

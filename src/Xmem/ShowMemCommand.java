@@ -54,8 +54,6 @@ public class ShowMemCommand implements Command {
                             System.out.println("Address: " + x1.homeAddress);
                             System.out.println("Expire date(DD-MM-YYYY): " + x1.expiryDate);
 
-                        } else {
-                            System.out.println("Your input id no exist or del");
                         }
 
                         System.out.println("                                                    ");
@@ -63,6 +61,7 @@ public class ShowMemCommand implements Command {
                     }
             }
         } catch (NullPointerException e) {
+            System.out.println("Input data length or type wrong!");
             e.printStackTrace();
         }
     }

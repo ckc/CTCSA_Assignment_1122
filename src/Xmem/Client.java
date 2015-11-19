@@ -28,7 +28,7 @@ public abstract class Client {
         this.homeAddress = homeAddress;
     }
 
-    public abstract boolean validate(Client id);
+    public abstract boolean validate(int cid);
 
     public int getCid() {
         return cid;

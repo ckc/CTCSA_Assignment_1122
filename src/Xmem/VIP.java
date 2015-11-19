@@ -18,10 +18,10 @@ public class VIP extends Client {
         super(cid, fullName, expiryDate, homeAddress);
     }
 
-    public boolean validate(Client cid) {
+    public boolean validate(int cid) {
         int sum = 0;
-        String c1 = cid.toString();
-        String clients[] = c1.split("");
+       
+        String clients[] = Integer.toString(cid).split("");
 
         if (clients.length <= 9) {
             for (int i = 0; i < clients.length; i++) {
