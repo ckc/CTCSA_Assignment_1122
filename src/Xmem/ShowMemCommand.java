@@ -6,6 +6,7 @@
 package Xmem;
 
 import java.io.*;
+import java.text.SimpleDateFormat;
 import java.util.*;
 
 /**
@@ -33,7 +34,7 @@ public class ShowMemCommand implements Command {
             switch (a) {
                 case "*999":
                     System.out.println("Member information");
-                    System.out.println("Expire Date ID  Type  Name   Address");
+                    System.out.println("Expire Date                       ID        Type Name            Address");
 
                     for (Xmem x1 : xmem) {
 
@@ -42,23 +43,24 @@ public class ShowMemCommand implements Command {
 
                 default:
 
-                    for (int i = 0; i < xmem.size(); i++) {
-
-                        Xmem x1 = xmem.get(i);
-
-                        if ((a.equals(x1.cid))) {
+                   
+                        /*if (a.equals(sx1.getCid())) {
                             System.out.println("Member information");
-                            System.out.println("ID:" + x1.cid);
-                            System.out.println("Type: " + x1.type);
-                            System.out.println("Name: " + x1.fullName);
-                            System.out.println("Address: " + x1.homeAddress);
-                            System.out.println("Expire date(DD-MM-YYYY): " + x1.expiryDate);
+                            System.out.println("ID:" + sx1.getCid());
+                            System.out.println("Type: " + sx1.getType());
+                            System.out.println("Name: " + sx1.getFullName());
+                            System.out.println("Address: " + sx1.getHomeAddress());
+                               SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd ");
+                            System.out.println("Expire date(DD-MM-YYYY): " + dateFormat.format(sx1.getExpiryDate()));
 
-                        }
+                            System.out.println("                                                    ");
+                        }*/
+                         for (Xmem x1 : xmem) {
 
-                        System.out.println("                                                    ");
-
+                        System.out.println(x1.toString1());
                     }
+                    
+
             }
         } catch (NullPointerException e) {
             System.out.println("Input data length or type wrong!");

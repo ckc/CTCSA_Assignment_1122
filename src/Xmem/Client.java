@@ -20,7 +20,8 @@ public abstract class Client {
     private String homeAddress;
 
     public Vector<Member> Xmem;
-
+    public Client(){
+    }
     public Client(int cid, String fullName, Date expiryDate, String homeAddress) {
         this.cid = cid;
         this.fullName = fullName;
@@ -48,11 +49,11 @@ public abstract class Client {
         this.expiryDate = d1;
     }
 
-    public String getlName() {
+    public String getfulllName() {
         return fullName;
     }
 
-    public void setName(String fullName) {
+    public void setfullName(String fullName) {
         this.fullName = fullName;
     }
 

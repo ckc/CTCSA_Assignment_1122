@@ -3,12 +3,13 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
+
 package Xmem;
 
 /**
  *
- * @author jackh
+ * @author a1
  */
-public interface MTXAdaptee {
-    public Xmem request()throws Exception;
+public class ToXmemAdaptee {
+    
 }

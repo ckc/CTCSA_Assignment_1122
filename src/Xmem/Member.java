@@ -21,6 +21,7 @@ public abstract class Member {
     private Date goodTill;
     public Vector<Member> Xmem;
       
+    public Member(){}
     public Member(String id, Date goodTill, String name, String postal) {
 
         this.id = id;
@@ -36,12 +37,16 @@ public abstract class Member {
         return id;
     }
 
-    public void setId(String sid) {
+    public void c(String sid) {
         this.id = sid;
     }
 
     public String getName() {
         return name;
+    }
+
+    public void setId(String id) {
+        this.id = id;
     }
 
     public void setName(String name) {

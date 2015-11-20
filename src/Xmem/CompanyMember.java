@@ -24,7 +24,7 @@ public class CompanyMember extends Member {
     public boolean validate(String id) {
         int sum = 0;
         String numbers[] = id.split("");
-        if (numbers.length <= 8) {
+        if (numbers.length == 8) {
             for (int i = 0; i < numbers.length; i++) {
                 int num = Integer.parseInt(numbers[i]);
                 while (num > 0) {
@@ -38,6 +38,7 @@ public class CompanyMember extends Member {
                 return false;
             }
         } else {
+            System.out.println("The ComId length isn't 8");
             return false;
         }
     }

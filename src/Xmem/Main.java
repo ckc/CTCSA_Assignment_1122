@@ -27,8 +27,9 @@ public class Main {
 
         Command cmd;
         Creator Creators[] = {new CreateMemCommandCreator(xmem),
-            new ShowMemCommandCreator(xmem)
-
+            new ShowMemCommandCreator(xmem),
+            new UpdateAddressCommandCreator(xmem)
+            
         };
 
         while (cont) {
@@ -53,8 +54,8 @@ public class Main {
                 case "a":
                 case "A":
                     Command Ucmd;
-                    //  Ucmd = new UpdateAddressCommand(mem);
-                    //Ucmd.execute();
+                     Ucmd = new UpdateAddressCommand(xmem);
+                    Ucmd.execute();
                     break;
                 case "e":
                 case "E":

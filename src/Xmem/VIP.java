@@ -18,27 +18,27 @@ public class VIP extends Client {
         super(cid, fullName, expiryDate, homeAddress);
     }
 
-    public boolean validate(int cid) {
-        int sum = 0;
-       
-        String clients[] = Integer.toString(cid).split("");
+   public boolean validateVIP(int cid) {
 
-        if (clients.length <= 9) {
-            for (int i = 0; i < clients.length; i++) {
-                int num = Integer.parseInt(clients[i]);
-                while (num > 0) {
-                    //The VIP number is started with digit '3'
-                    sum += num % 10;
-                    num /= 10;
+        int sum = 0;
+        int[] digits = getDigitsOf(cid);
+
+        while (digits.length == 9) {
+            for (int i = 0; i < digits.length; i++) {
+                /*
+                 The VIP_Family number is started with 3 fix
+                 digits “303”. 
+                 */
+                if (digits[0] == 3 && sum % 6 == 0) {
+                    return true;
+                } else {
+                    return false;
                 }
             }
-            if (sum % 6 == 0) {
-                return true;
-            } else {
-                return false;
-            }
-        } else {
-            return false;
         }
+        System.out.println("The VipId length isn't 9");
+        return false;
+
     }
+
 }

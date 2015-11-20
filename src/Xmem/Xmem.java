@@ -5,9 +5,12 @@
  */
 package Xmem;
 
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.Vector;
+import java.text.DecimalFormat;
 
 /**
  *
@@ -16,30 +19,32 @@ import java.util.Vector;
 public class Xmem {
 
     /*private String id;
-    private String name;
-    private String postal;
-    private Date goodTill;
+     private String name;
+     private String postal;
+     private Date goodTill;
      */
     public int cid;
     public String type;
     public String fullName;
     public String homeAddress;
-
     public Date expiryDate;
 
-    public Vector<Member> Xmem;
+    Date d1 = new Date();
     
-    public Xmem(){
-        
+    public Vector<Member> Xmem;
+
+    public Xmem() {
+
     }
+
     public Xmem(int cid, String type, String fullName, String homeAddress) {
         this.cid = cid;
         this.type = type;
         this.fullName = fullName;
         this.homeAddress = homeAddress;
-        getExpiryDate();
+
+        setExpiryDate(d1, 1);
     }
-    
 
     public int getCid() {
         return cid;
@@ -75,120 +80,71 @@ public class Xmem {
 
     public Date getExpiryDate() {
 
-        Date date = new Date();
-        Calendar cal = Calendar.getInstance();
-        cal.setTime(date);
-        cal.add(Calendar.YEAR, 2);
+        /*   Date date = new Date();
+         Calendar cal = Calendar.getInstance();
+         cal.setTime(date);
+         cal.add(Calendar.YEAR, 1);
 
-        java.util.Date expirationDate = cal.getTime();
-
-        return expirationDate;
+         java.util.Date expirationDate = cal.getTime();
+         */
+        return expiryDate;
     }
 
-    public void setExpiryDate(Date expiryDate) {
+    public void abc() {
+        DecimalFormat tflz;
+        DecimalFormat tf;
+        tf = new DecimalFormat("#0");
+        tflz = new DecimalFormat("00");
+        Calendar calendar = Calendar.getInstance();
+        StringBuffer buf = new StringBuffer();
+        buf.append(tf.format(calendar.get(Calendar.DATE)));
+        buf.append('-');
+        buf.append(tflz.format(calendar.get(Calendar.MONTH)));
+        buf.append('-');
+        buf.append(tflz.format(calendar.get(Calendar.YEAR)));
+
+    }
+
+    public void setExpiryDate(Date expiryDate, int y) {
         Date date = new Date();
         Calendar cal = Calendar.getInstance();
         cal.setTime(date);
-        cal.add(Calendar.YEAR, 2);
+        cal.add(Calendar.YEAR, y);
 
         java.util.Date expirationDate = cal.getTime();
-
+        DateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd");
+        dateFormat.format(expirationDate);
         this.expiryDate = expirationDate;
     }
+   
+    public int[] getDigitsOf(int num) {
+        int digitCount = Integer.toString(num).length();
 
-    public boolean validateVIPF(int cid) {
-        
-            int sum = 0;
-            String clients[] = Integer.toString(cid).split("");
-
-            if (clients.length <= 9) {
-                for (int i = 0; i < clients.length; i++) {
-                    int num = Integer.parseInt(clients[i]);
-                    while (num > 0) {
-                        //The VIP_Family number is started with 3 fix digits “303”. 
-                        sum += num % 10;
-                        num /= 10;
-                    }
-                }
-                if (sum % 6 == 0) {
-                    return true;
-                } else {
-                    return false;
-                }
-            } else {
-                return false;
-            }
-        
-    }
-
-    public boolean validateVIP(int cid) {
-        int sum = 0;
-        String clients[] = Integer.toString(cid).split("");
-
-        if (clients.length <= 9) {
-            for (int i = 0; i < clients.length; i++) {
-                int num = Integer.parseInt(clients[i]);
-                while (num > 0) {
-                    //The VIP_Family number is started with 3 fix digits “303”. 
-                    sum += num % 10;
-                    num /= 10;
-                }
-            }
-            if (sum % 6 == 0) {
-                return true;
-            } else {
-                return false;
-            }
-        } else {
-            return false;
+        if (num < 0) {
+            digitCount--;
         }
-    }
 
-    public boolean validateCompanyMember(String id) {
-        int sum = 0;
-        String numbers[] = id.split("");
-        if (numbers.length <= 8) {
-            for (int i = 0; i < numbers.length; i++) {
-                int num = Integer.parseInt(numbers[i]);
-                while (num > 0) {
-                    sum += num % 10;
-                    num /= 10;
-                }
-            }
-            if (sum % 8 == 0) {
-                return true;
-            } else {
-                return false;
-            }
-        } else {
-            return false;
+        int[] result = new int[digitCount];
+
+        while (digitCount-- > 0) {
+            result[digitCount] = num % 10;
+            num /= 10;
         }
-    }
-     public boolean validatePrimaryMember(String id) {
-        int sum = 0;
-        String numbers[] = id.split("");
-        if (numbers.length <= 8) {
-            for (int i = 0; i < numbers.length; i++) {
-                int num = Integer.parseInt(numbers[i]);
-                while (num > 0) {
-                    sum += num % 10;
-                    num /= 10;
-                }
-            }
-            if (sum % 3 == 0) {
-                return true;
-            } else {
-                return false;
-            }
-        } else {
-            return false;
-        }
+        return result;
     }
 
     @Override
     public String toString() {
-        return ""+expiryDate+" "+ cid + " " + type + " " + fullName + " " + homeAddress  ;
+        SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd ");
+
+        return "" + dateFormat.format(expiryDate) + " " + cid + " " + type + " " + fullName + " " + homeAddress;
     }
-    
-    
+
+    public String toString1() {
+        SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd ");
+
+        return "" + "Member information" + "/n ype: " + getType() + "/n Name: "
+                + getFullName() + "/n Address: " + getHomeAddress() + "/n Expire date(DD-MM-YYYY): " + getExpiryDate() + "";
+    }
+
 }

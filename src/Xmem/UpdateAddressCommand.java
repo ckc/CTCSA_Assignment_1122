@@ -37,22 +37,14 @@ public class UpdateAddressCommand implements Command {
                     
                     System.out.println("Enter id (*999 to show all): ");
                     String u2 = br.readLine();
-                    if (u2 == "*999") {;
-                        /*for (Member m2 : member) {
-                         System.out.println(m2);
-                         }
-                         for (Client c2 : clients) {
-                         System.out.println(c2);
-                         }*/
+                    if (u2.equals("*999")) {;
+                        
                         Command Scmd = new ShowMemCommand(xmem);
                         Scmd.execute();
                         
                     } else if (u2.equals(x1.getCid())) {
                         System.out.println("Enter address: ");
-                        //setter to set member address
-                       /* String u3 = br.readLine();
-                         x1.setHomeAddress(u3);
-                         */
+                        
                         String NewAddress = br.readLine();
                         x1.setHomeAddress(NewAddress);
                         
