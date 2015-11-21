@@ -37,12 +37,12 @@ public class ShowMemCommand implements Command {
             switch (a) {
                 case "*999":
                     System.out.println("Member information");
-                    System.out.println("Expire Date\tID\tType\tName\tAddress");
+                    System.out.println("Expire Date\tID\tType\t\tName\t\tAddress");
 
                     for (Xmember x1 : xmem) {
                      
                        System.out.println(dateFormat.format(x1.getGoodTill())+",\t"+x1.getId()+",\t"+x1.getType()+
-                                ",\t"+x1.getName()+",\t" + x1.getPostal());    
+                                ",\t\t"+x1.getName()+",\t\t" + x1.getPostal());    
                         
                       
                     }

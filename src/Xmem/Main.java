@@ -31,7 +31,9 @@ public class Main {
         Creator Creators[] = {new CreateMemCommandCreator(xmem),
             new ShowMemCommandCreator(xmem),
             new UpdateAddressCommandCreator(xmem),
-            new CarryOnCommandCreator(contin),};
+            new CarryOnCommandCreator(contin),
+            new ExtendMemCommandCreator(xmem),
+        };
 
         while (cont) {
             System.out.println("X Mem Management System");
@@ -40,7 +42,7 @@ public class Main {
                     + "= undo, r = redo, l = list undo/redo, X = eXit system");
 
             String line = br.readLine();
-
+            
             switch (line) {
                 case "c":
                 case "C":
@@ -62,7 +64,9 @@ public class Main {
                     break;
                 case "e":
                 case "E":
-                    System.out.println(" e = extend membership");
+                    Command Ecmd;
+                    Ecmd = new ExtendMemCommand(xmem);
+                    Ecmd.execute();
                     break;
                 case "u":
                 case "U":
