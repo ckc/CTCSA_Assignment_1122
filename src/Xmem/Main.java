@@ -21,17 +21,17 @@ public class Main {
     public static void main(String[] args) throws Exception {
         // TODO code application logic here
         Vector<Xmember> xmem = new Vector<Xmember>();
-        
+        boolean contin = true;
         boolean cont = true;
+
         InputStreamReader is = new InputStreamReader(System.in);
         BufferedReader br = new BufferedReader(is);
 
         Command cmd;
         Creator Creators[] = {new CreateMemCommandCreator(xmem),
             new ShowMemCommandCreator(xmem),
-            new UpdateAddressCommandCreator(xmem)
-            
-        };
+            new UpdateAddressCommandCreator(xmem),
+            new CarryOnCommandCreator(contin),};
 
         while (cont) {
             System.out.println("X Mem Management System");
@@ -46,16 +46,18 @@ public class Main {
                 case "C":
                     cmd = Creators[0].createCmd();
                     cmd.execute();
+                    Command ccocmd = Creators[3].createCmd();
+                    ccocmd.execute();
                     break;
                 case "s":
                 case "S":
-                   cmd = Creators[1].createCmd();
-                   cmd.execute();
+                    cmd = Creators[1].createCmd();
+                    cmd.execute();
                     break;
                 case "a":
                 case "A":
                     Command Ucmd;
-                     Ucmd = new UpdateAddressCommand(xmem);
+                    Ucmd = new UpdateAddressCommand(xmem);
                     Ucmd.execute();
                     break;
                 case "e":
