@@ -32,6 +32,7 @@ public class CarryOnCommand implements Command {
             contin = true;
         } else {
             contin = false;
+            System.exit(0);
         }
     }
 

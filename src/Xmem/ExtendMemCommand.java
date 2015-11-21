@@ -16,39 +16,38 @@ import java.util.Vector;
  * @author jackh
  */
 public class ExtendMemCommand implements Command {
-    
+
     public Vector<Xmember> xmem;
-    
-    
+    Xmember x1;
+
     public ExtendMemCommand(Vector<Xmember> xmem) {
         this.xmem = xmem;
     }
-    
+
     public void execute() throws Exception {
         try {
             InputStreamReader is = new InputStreamReader(System.in);
             BufferedReader br = new BufferedReader(is);
-            String c = br.readLine();
 
+            String e = br.readLine();
+            System.out.println("Enter id: ");
+            switch (e) {
+                case "a":
+                    System.out.println("Some unexcepted error.");
+                    break;
+                default:
+                    for (Xmember e1 : xmem) {
+                        if (e.equals(e1.getId())) {
+                            e1.setGoodTill(1);
+                            break;
+                        }
+                    }break;
+            }
 
-            System.out.println("Enter id (*999 to show all):");
-            
-
-                switch (c) {
-                    case "*999":
-                   Command Scmd = new ShowMemCommand(xmem);
-                   Scmd.execute();
-
-                       
-                    
-                    default:
-                        System.out.println("Input data length wrong.");
-                }
-                }catch(Exception e){
-                  System.out.println("Some Unexpected error.");
-                   System.exit(0);
-                   e.printStackTrace();
-                }       
+        } catch (Exception e) {
+            System.out.println("Some unexcepted.");
+            e.printStackTrace();
+        }
     }
 
     public void undo() {

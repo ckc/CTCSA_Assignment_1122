@@ -55,8 +55,8 @@ public class MTXAdapter implements Xmember {
     public Date getGoodTill(){
       return m1.getGoodTill();
     }
-    public void setGoodTill(Date goodTill) {
-       m1.setGoodTill(goodTill);
+    public void setGoodTill(int i) {
+       m1.setGoodTill(i);
        
     }
 

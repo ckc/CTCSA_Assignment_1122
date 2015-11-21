@@ -43,7 +43,7 @@ public class CreateMemCommand implements Command {
                 //call create member class
                 String Cinput = br.readLine();
                 split1 = Cinput.split(";");
-         if(split1.length ==4){       
+        
                 Date date = new Date();
                 Calendar cal = Calendar.getInstance();
                 cal.setTime(date);
@@ -93,7 +93,7 @@ public class CreateMemCommand implements Command {
                     
                 }
             
-         }else{ System.out.println("Input data length wrong."); };
+         
          }
        } catch (Exception e) {
             System.out.println("Input data length wrong.");

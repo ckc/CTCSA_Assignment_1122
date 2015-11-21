@@ -17,7 +17,7 @@ import java.util.*;
 public class ShowMemCommand implements Command {
 
     Vector<Xmember> xmem;
-    Xmember x1;
+ 
 
     public ShowMemCommand(Vector<Xmember> xmem) {
         this.xmem = xmem;
@@ -32,33 +32,37 @@ public class ShowMemCommand implements Command {
         
         System.out.println("Enter id (*999 to show all): ");
         String a = br.readLine();
-
+        String a1=a.trim();
+       
         try {
-            switch (a) {
-                case "*999":
+             
+          
+            switch (a1) {
+                case "*999":  
+                    
                     System.out.println("Member information");
                     System.out.println("Expire Date\tID\tType\t\tName\t\tAddress");
-
                     for (Xmember x1 : xmem) {
-                     
-                       System.out.println(dateFormat.format(x1.getGoodTill())+",\t"+x1.getId()+",\t"+x1.getType()+
+                    if(a1.equals("*999")){
+                    
+                    System.out.println(dateFormat.format(x1.getGoodTill())+",\t"+x1.getId()+",\t"+x1.getType()+
                                 ",\t\t"+x1.getName()+",\t\t" + x1.getPostal());    
-                        
-                      
+   
                     }
-                    break;
+                    }break;
+                       
                 default:
                     //enther the id and find the id member
-                     for (Xmember x1 : xmem) {
-                         if(a.equals(x1.getId()))
-                   
-                        System.out.println("Member information");
-                        System.out.println("\nID: " + x1.getId() + "\n" + "Type: " + x1.getType() + "" + "\n" + "Name: " + x1.getName() + "\n" + "Address: " + x1.getPostal() + "\n" + 
-                                "Expire date(DD-MM-YYYY): " + dateFormat.format(x1.getGoodTill()) + "\n");
+                    for (Xmember x1 : xmem) {
+                            if(a1.equals(x1.getId())){
+                            
+                            System.out.println("\nID: " + x1.getId() + "\n" + "Type: " + x1.getType() + "" + "\n" + "Name: " + x1.getName() + "\n" + "Address: " + x1.getPostal() + "\n" + 
+                                    "Expire date(DD-MM-YYYY): " + dateFormat.format(x1.getGoodTill()) + "\n");
+                            }
                     }
-
-                    break;
-            }
+                            break;
+                }
+             
         } catch (NullPointerException e) {
             System.out.println("Input data length or type wrong!");
             e.printStackTrace();

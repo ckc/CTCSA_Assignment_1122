@@ -28,37 +28,34 @@ public class UpdateAddressCommand implements Command {
 
         System.out.println("Enter id (*999 to show all): ");
         String u2 = br.readLine();
-        if (u2 == "*999") {
-                    System.out.println("Member address updated.");
-                    Command Scmd = new ShowMemCommand(xmem);
-                    Scmd.execute();
 
-        } else if(u2.length()==8 || u2.length()==9){
-                        for (Xmember x1 : xmem) {
-                           
-                            if (u2.equals(x1.getId())) {
-                                System.out.println("Enter address: ");
+        switch (u2) {
+            case "*999":
+                System.out.println("Enter id (*999 to show all): ");
+                Command Scmd = new ShowMemCommand(xmem);
+                Scmd.execute();
+                break;
+            default:
+                for (Xmember x1 : xmem) {
+                    if (u2.equals( x1.getId())) {
 
-                                String NewAddress = br.readLine();
+                        System.out.println("Enter address: ");
 
-                                x1.setPostal(NewAddress);
-
-                            } else {
-                                System.out.println("Id  no exist or id wrong length");
-                           
-                            }
-                        }
+                        String NewAddress = br.readLine();
+                        x1.setPostal(NewAddress);
+                        System.out.println("Member address updated.");
+                        break;
+                    }
+                }
         }
     }
 
-    @Override
     public void undo() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+
     }
 
-    @Override
     public void redo() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+
     }
 
 }

@@ -45,12 +45,12 @@ public abstract class Client {
              return expiryDate;
     }
 
-    public void setExpiryDate(Date ex) {
+    public void setExpiryDate(int i ) {
         
          Date date = new Date();
         Calendar cal = Calendar.getInstance();
      
-        cal.add(Calendar.YEAR, 1);
+        cal.add(Calendar.YEAR, i);
         
         SimpleDateFormat dateFormat = new SimpleDateFormat("dd-MM-yyyy");
         dateFormat.format(date);
@@ -69,8 +69,8 @@ public abstract class Client {
         return homeAddress;
     }
 
-    public void setHomeAddress(String ha) {
-        this.homeAddress = ha;
+    public void setHomeAddress(String homeAddress) {
+        this.homeAddress = homeAddress;
     }
 
     public String toString() {

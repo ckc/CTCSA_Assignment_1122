@@ -32,8 +32,7 @@ public class Main {
             new ShowMemCommandCreator(xmem),
             new UpdateAddressCommandCreator(xmem),
             new CarryOnCommandCreator(contin),
-            new ExtendMemCommandCreator(xmem),
-        };
+            new ExtendMemCommandCreator(xmem),};
 
         while (cont) {
             System.out.println("X Mem Management System");
@@ -42,7 +41,7 @@ public class Main {
                     + "= undo, r = redo, l = list undo/redo, X = eXit system");
 
             String line = br.readLine();
-            
+
             switch (line) {
                 case "c":
                 case "C":
@@ -58,15 +57,13 @@ public class Main {
                     break;
                 case "a":
                 case "A":
-                    Command Ucmd;
-                    Ucmd = new UpdateAddressCommand(xmem);
-                    Ucmd.execute();
+                    cmd = Creators[2].createCmd();
+                    cmd.execute();
                     break;
                 case "e":
                 case "E":
-                    Command Ecmd;
-                    Ecmd = new ExtendMemCommand(xmem);
-                    Ecmd.execute();
+                    cmd = Creators[4].createCmd();
+                    cmd.execute();
                     break;
                 case "u":
                 case "U":

@@ -61,7 +61,7 @@ public class CTXAdapter implements Xmember {
         return client.getExpiryDate();
     }
 
-    public void setGoodTill(Date goodTill) {
+    public void setGoodTill(int i) {
         goodTill = client.getExpiryDate();
     }
 
