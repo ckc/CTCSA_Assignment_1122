@@ -18,10 +18,17 @@ public interface Xmember {
 
     public String getName();
     public void setName(String name);
+    
+    public String getType();
 
     public String getPostal();
     public void setPostal(String postalAddress);
 
     public Date getGoodTill();
     public void setGoodTill(Date goodTill);
+
+    // for searching Xmember
+    public String toString();
+    public String toString1();
+    
 }

@@ -5,6 +5,7 @@
  */
 package Xmem;
 
+//import del.Xmem;
 import java.io.*;
 import java.text.SimpleDateFormat;
 import java.util.*;
@@ -15,10 +16,10 @@ import java.util.*;
  */
 public class ShowMemCommand implements Command {
 
-    Vector<Xmem> xmem;
-    Xmem x1;
+    Vector<Xmember> xmem;
+    Xmember x1;
 
-    public ShowMemCommand(Vector<Xmem> xmem) {
+    public ShowMemCommand(Vector<Xmember> xmem) {
         this.xmem = xmem;
     }
 
@@ -26,7 +27,9 @@ public class ShowMemCommand implements Command {
 
         InputStreamReader is = new InputStreamReader(System.in);
         BufferedReader br = new BufferedReader(is);
-
+        SimpleDateFormat dateFormat = new SimpleDateFormat("dd-MM-yyyy");
+                        
+        
         System.out.println("Enter id (*999 to show all): ");
         String a = br.readLine();
 
@@ -36,31 +39,28 @@ public class ShowMemCommand implements Command {
                     System.out.println("Member information");
                     System.out.println("Expire Date                       ID        Type Name            Address");
 
-                    for (Xmem x1 : xmem) {
+                    for (Xmember x1 : xmem) {
+                        System.out.println();
+                        System.out.println();
+                        System.out.println("Member information");
+                        System.out.println("Expire Date ID    Type  Name   Address"); 
+                        System.out.println(x1.getGoodTill()+",  "+x1.getId()+",  "+x1.getType()+
+                                ",  "+x1.getName()+",  "+ dateFormat.format(x1.getGoodTill()) );    
+                        
 
-                        System.out.println(x1);
                     }
-
+                    break;
                 default:
-
+                    //enther the id and find the id member
+                     for (Xmember x1 : xmem) {
+                         if(a.equals(x1.getId()))
                    
-                        /*if (a.equals(sx1.getCid())) {
-                            System.out.println("Member information");
-                            System.out.println("ID:" + sx1.getCid());
-                            System.out.println("Type: " + sx1.getType());
-                            System.out.println("Name: " + sx1.getFullName());
-                            System.out.println("Address: " + sx1.getHomeAddress());
-                               SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd ");
-                            System.out.println("Expire date(DD-MM-YYYY): " + dateFormat.format(sx1.getExpiryDate()));
-
-                            System.out.println("                                                    ");
-                        }*/
-                         for (Xmem x1 : xmem) {
-
-                        System.out.println(x1.toString1());
+                        
+                        System.out.println("ID:" + x1.getId() + "\n" + "Type: " + x1.getType() + "" + "\n" + "Name: " + x1.getName() + "Address: " + "\n" + x1.getPostal() + 
+                                "Expire date(DD-MM-YYYY): " + dateFormat.format(x1.getGoodTill()) + "");
                     }
-                    
 
+                    break;
             }
         } catch (NullPointerException e) {
             System.out.println("Input data length or type wrong!");

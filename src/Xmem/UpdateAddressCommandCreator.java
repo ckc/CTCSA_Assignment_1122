@@ -5,6 +5,7 @@
  */
 package Xmem;
 
+//import del.Xmem;
 import java.util.Vector;
 
 /**
@@ -13,9 +14,9 @@ import java.util.Vector;
  */
 public class UpdateAddressCommandCreator extends Creator {
 
-    private Vector<Xmem> xmem;
+    private Vector<Xmember> xmem;
 
-    public UpdateAddressCommandCreator(Vector<Xmem> xmem) {
+    public UpdateAddressCommandCreator(Vector<Xmember> xmem) {
         this.xmem = xmem;
     }
 

@@ -5,6 +5,7 @@
  */
 package Xmem;
 
+//import del.Xmem;
 import java.io.*;
 import java.util.*;
 
@@ -14,10 +15,10 @@ import java.util.*;
  */
 public class UpdateAddressCommand implements Command {
     
-    Vector<Xmem> xmem;
-    Xmem x1;
+    Vector<Xmember> xmem;
+    Xmember x1;
     
-    public UpdateAddressCommand(Vector<Xmem> xmem) {
+    public UpdateAddressCommand(Vector<Xmember> xmem) {
         this.xmem = xmem;
     }
     
@@ -30,7 +31,7 @@ public class UpdateAddressCommand implements Command {
         String u1 = br.readLine();
         
         for (int i = 0; i < xmem.size(); i++) {
-            x1.getCid();
+            x1.getPostal();
             switch (u1) {
                 
                 case "a":
@@ -42,11 +43,11 @@ public class UpdateAddressCommand implements Command {
                         Command Scmd = new ShowMemCommand(xmem);
                         Scmd.execute();
                         
-                    } else if (u2.equals(x1.getCid())) {
+                    } else if (u2.equals(x1.getId())) {
                         System.out.println("Enter address: ");
                         
                         String NewAddress = br.readLine();
-                        x1.setHomeAddress(NewAddress);
+                        x1.setPostal(NewAddress);
                         
                         System.out.println("Member address updated.");
                         

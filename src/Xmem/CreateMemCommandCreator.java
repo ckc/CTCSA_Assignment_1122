@@ -5,6 +5,7 @@
  */
 package Xmem;
 
+//import del.Xmem;
 import java.util.Vector;
 
 /**
@@ -13,16 +14,16 @@ import java.util.Vector;
  */
 public class CreateMemCommandCreator extends Creator {
 
-    private Vector<Xmem> xmem;
+    private Vector<Xmember> xmember;
 
-    public CreateMemCommandCreator(Vector<Xmem> xmem) {
-        this.xmem = xmem;
+    public CreateMemCommandCreator(Vector<Xmember> xmember) {
+        this.xmember = xmember;
     }
 
    
 
     public Command createCmd() {
-        Command c = new CreateMemCommand(xmem);
+        Command c = new CreateMemCommand(xmember);
         return c;
     }
 }

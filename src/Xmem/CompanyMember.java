@@ -15,7 +15,7 @@ import java.util.Vector;
  */
 public class CompanyMember extends Member {
 
-    public Vector<Member> member;
+    //public Vector<Member> member;
 
     public CompanyMember(String id, Date goodTill, String name, String postal) {
         super(id, goodTill, name, postal);

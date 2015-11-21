@@ -5,35 +5,76 @@
  */
 package Xmem;
 
+import java.text.SimpleDateFormat;
 import java.util.Date;
-import java.util.Vector;
 
 /**
  *
  * @author jackh
  */
-public class CTXAdapter implements Xmember{
+public class CTXAdapter implements Xmember {
 
-    Client c1;
-    public CTXAdapter(Client c1){
-        this.c1 = c1;
-    }
-    
-  
+    private String id;
+    private String name;
+    private String postal;
+    private Date goodTill;
 
-    
-    public int getId(String id) {
-        return c1.getCid();
-        
-    }
-    public void setId(int cid) {
-        //throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-        c1.setCid(cid);
-    }
-    
-    public 
+    Client client;
 
-   
-   
-    
+    public CTXAdapter(Client client) {
+        this.client = client;
+    }
+
+    public String getType() {
+        if (client instanceof Xmem.VIP) {
+            return "VIP";
+        } else {
+            return "VIP_Family";
+        }
+    }
+
+    public String getId() {
+        return Integer.toString(client.getCid());
+    }
+
+    public void setId(String id) {
+        id = Integer.toString(client.getCid());
+    }
+
+    public String getName() {
+        return client.getfulllName();
+    }
+
+    public void setName(String name) {
+        name = client.getfulllName();
+    }
+
+    public String getPostal() {
+        return client.getHomeAddress();
+    }
+
+    public void setPostal(String postalAddress) {
+        postalAddress = client.getHomeAddress();
+    }
+
+    public Date getGoodTill() {
+        return client.getExpiryDate();
+    }
+
+    public void setGoodTill(Date goodTill) {
+        goodTill = client.getExpiryDate();
+    }
+
+    public String toString() {
+        return client.toString();
+    }
+
+    public String toString1() {
+        SimpleDateFormat dateFormat = new SimpleDateFormat("dd-MM-yyyy ");
+
+        return "ID:" + getId() + "\n" + "Type: " + getType() + "" + "\n" + "Name: " + getName() + "Address: " + "\n"
+                + "\n" + getPostal() + "Expire date(DD-MM-YYYY): " + dateFormat.format(getGoodTill()) + "";
+
+    }
+
 }

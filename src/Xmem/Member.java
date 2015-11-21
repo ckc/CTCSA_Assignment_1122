@@ -20,8 +20,10 @@ public abstract class Member {
     private String postal;
     private Date goodTill;
     public Vector<Member> Xmem;
-      
-    public Member(){}
+
+    public Member() {
+    }
+
     public Member(String id, Date goodTill, String name, String postal) {
 
         this.id = id;
@@ -37,16 +39,12 @@ public abstract class Member {
         return id;
     }
 
-    public void c(String sid) {
-        this.id = sid;
+    public void setId(String id) {
+        this.id = id;
     }
 
     public String getName() {
         return name;
-    }
-
-    public void setId(String id) {
-        this.id = id;
     }
 
     public void setName(String name) {
@@ -62,33 +60,25 @@ public abstract class Member {
 
     }
 
-    
-    public Date getGoodTill() throws Exception {
+    public Date getGoodTill() {
 
-        Date date = new Date();
-        Calendar cal = Calendar.getInstance();
-        cal.setTime(date);
-        cal.add(Calendar.YEAR, 2);
-
-        java.util.Date expirationDate = cal.getTime();
-
-        return expirationDate;
+        return goodTill;
     }
 
-    public void setGoodTill(Date goodTill) throws Exception {
+    public void setGoodTill(Date goodTill) {
         Date date = new Date();
         Calendar cal = Calendar.getInstance();
-        cal.setTime(date);
-        cal.add(Calendar.YEAR, 2);
 
-        java.util.Date expirationDate = cal.getTime();
+        cal.add(Calendar.YEAR, 1);
 
-        this.goodTill = expirationDate;
+        SimpleDateFormat dateFormat = new SimpleDateFormat("dd-MM-yyyy");
+        dateFormat.format(date);
+        this.goodTill = date;
 
     }
-    @Override
+
     public String toString() {
-        return id + "  " + name + "  " + postal;
+        return " ";
     }
 
 }

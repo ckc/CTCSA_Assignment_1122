@@ -5,6 +5,8 @@
  */
 package Xmem;
 
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import java.util.Date;
 import java.util.Vector;
 
@@ -40,13 +42,19 @@ public abstract class Client {
     }
 
     public Date getExpiryDate() {
-        return expiryDate;
+             return expiryDate;
     }
 
     public void setExpiryDate(Date ex) {
-        //ex ??
-        Date d1 = new Date();
-        this.expiryDate = d1;
+        
+         Date date = new Date();
+        Calendar cal = Calendar.getInstance();
+     
+        cal.add(Calendar.YEAR, 1);
+        
+        SimpleDateFormat dateFormat = new SimpleDateFormat("dd-MM-yyyy");
+        dateFormat.format(date);
+        this.expiryDate = date;
     }
 
     public String getfulllName() {
@@ -65,9 +73,8 @@ public abstract class Client {
         this.homeAddress = ha;
     }
 
-    @Override
     public String toString() {
-        return "Client{" + "cid=" + cid + ", expiryDate=" + expiryDate + ", fullName=" + fullName + ", homeAddress=" + homeAddress + '}';
+          return  " ";
     }
 
 }

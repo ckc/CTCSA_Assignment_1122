@@ -12,33 +12,34 @@ import java.util.Vector;
  *
  * @author jackh
  */
-public class VIP_Family extends Client {
-    
+public  class VIP_Family extends Client {
+
     public VIP_Family(int cid, String fullName, Date expiryDate, String homeAddress) {
         super(cid, fullName, expiryDate, homeAddress);
     }
-    
-     public boolean validateVIPF(int cid) {
 
-        int[] digits = getDigitsOf(cid);
-
-        while (digits.length == 9) {
-            for (int i = 0; i < digits.length; i++) {
-                /*
-                 The VIP_Family number is started with 3 fix
-                 digits “303”. 
-                 */
-                int sum = 0;
-                sum += digits[i];
-                if (digits[0] == 3 && digits[1] == 0 && digits[2] == 3 && sum % 6 == 0) {
-                    return true;
-                } else {
-                    System.out.println("The VipId length isn't 9");
-                    return false;
+    public boolean validate(int id) {
+        int sum = 0;
+        
+         String clients[] = Integer.toString(id).split("");
+        if (clients.length <= 8) {
+            for (int i = 0; i < clients.length; i++) {
+                int num = Integer.parseInt(clients[i]);
+                while (num > 0) {
+                    sum += num % 10;
+                    num /= 10;
                 }
             }
+            if (sum % 8 == 0) {
+                return true;
+            } else {
+                return false;
+            }
+        } else {
+            return false;
         }
-
-        return false;
     }
+
+  
+    
 }
