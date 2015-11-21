@@ -56,8 +56,8 @@ public class ShowMemCommand implements Command {
                          if(a.equals(x1.getId()))
                    
                         
-                        System.out.println("ID:" + x1.getId() + "\n" + "Type: " + x1.getType() + "" + "\n" + "Name: " + x1.getName() + "Address: " + "\n" + x1.getPostal() + 
-                                "Expire date(DD-MM-YYYY): " + dateFormat.format(x1.getGoodTill()) + "");
+                        System.out.println("\nID: " + x1.getId() + "\n" + "Type: " + x1.getType() + "" + "\n" + "Name: " + x1.getName() + "\n" + "Address: " + x1.getPostal() + "\n" + 
+                                "Expire date(DD-MM-YYYY): " + dateFormat.format(x1.getGoodTill()) + "\n");
                     }
 
                     break;

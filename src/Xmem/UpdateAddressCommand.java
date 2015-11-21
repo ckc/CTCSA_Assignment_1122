@@ -16,7 +16,6 @@ import java.util.*;
 public class UpdateAddressCommand implements Command {
     
     Vector<Xmember> xmem;
-    Xmember x1;
     
     public UpdateAddressCommand(Vector<Xmember> xmem) {
         this.xmem = xmem;
@@ -27,43 +26,39 @@ public class UpdateAddressCommand implements Command {
         InputStreamReader is = new InputStreamReader(System.in);
         BufferedReader br = new BufferedReader(is);
         
-        System.out.println("Enter id (*999 to show all):");
-        String u1 = br.readLine();
+       
         
-        for (int i = 0; i < xmem.size(); i++) {
-            x1.getPostal();
-            switch (u1) {
-                
-                case "a":
-                    
+               
                     System.out.println("Enter id (*999 to show all): ");
                     String u2 = br.readLine();
-                    if (u2.equals("*999")) {;
-                        
-                        Command Scmd = new ShowMemCommand(xmem);
-                        Scmd.execute();
-                        
-                    } else if (u2.equals(x1.getId())) {
+                    for(Xmember member : xmem) {
+                        if(u2.equals(member.getId())) {
                         System.out.println("Enter address: ");
                         
                         String NewAddress = br.readLine();
-                        x1.setPostal(NewAddress);
+                        member.setPostal(NewAddress);
                         
                         System.out.println("Member address updated.");
-                        
-                    } else {
-                        System.out.println("assignment is suck");
+                        Command Scmd = new ShowMemCommand(xmem);
+                        Scmd.execute();
+                        } else {
+                            System.out.println("assignment is suck");
+                        }
                     }
-            }
-        }
+ //if (u2.equals(xmem.get(i).getId())) {
+                        
+                    
+        
     }
-    
+
+    @Override
     public void undo() {
-        
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
-    
+
+    @Override
     public void redo() {
-        
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
     
 }

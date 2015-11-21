@@ -54,8 +54,8 @@ public class CreateMemCommand implements Command {
                     case "Pri":
                         
                         PrimaryMember p1 = new PrimaryMember (split1[0],date,split1[2],split1[3]);
-                        MTXAdapter x1 = new MTXAdapter (p1);
-                        xmember.add(x1);
+                        //uper.XMember x1 = new MTXAdapter(p1);
+                        xmember.add(new MTXAdapter(p1));
                         System.out.println("New member record created. ");
                         
                         break;
@@ -77,8 +77,8 @@ public class CreateMemCommand implements Command {
                     case "VIPF":
                          int VIPFid = Integer.parseInt(split1[0]);
                        VIP_Family p4 = new VIP_Family (VIPFid,split1[2],date,split1[3]);
-                        CTXAdapter x4 = new CTXAdapter (p4);
-                        xmember.add(x4);
+                       
+                        xmember.add(new CTXAdapter (p4));
                         System.out.println("New member record created. ");
                         break;
                     /*        if (split1[1].equals("Pri") || split1[1].equals("Com")) {
