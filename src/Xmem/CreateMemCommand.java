@@ -59,13 +59,7 @@ public class CreateMemCommand implements Command {
                         System.out.println("New member record created. ");
                         System.out.println();
                         
-                        System.out.println("Do you want to carry on create member?? y/n");
-                        String question = br.readLine();
-                        if(question.equals("y")){
-                            contin = true;
-                        }else{
-                            contin = false;
-                        }
+                          
                         break;
                     case "Com":
                         CompanyMember p2 = new CompanyMember(split1[0], date, split1[2], split1[3]);

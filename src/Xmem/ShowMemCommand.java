@@ -52,7 +52,7 @@ public class ShowMemCommand implements Command {
                      for (Xmember x1 : xmem) {
                          if(a.equals(x1.getId()))
                    
-                        
+                        System.out.println("Member information");
                         System.out.println("\nID: " + x1.getId() + "\n" + "Type: " + x1.getType() + "" + "\n" + "Name: " + x1.getName() + "\n" + "Address: " + x1.getPostal() + "\n" + 
                                 "Expire date(DD-MM-YYYY): " + dateFormat.format(x1.getGoodTill()) + "\n");
                     }

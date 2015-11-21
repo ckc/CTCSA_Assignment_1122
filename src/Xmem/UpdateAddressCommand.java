@@ -29,23 +29,25 @@ public class UpdateAddressCommand implements Command {
         System.out.println("Enter id (*999 to show all): ");
         String u2 = br.readLine();
         if (u2 == "*999") {
-            System.out.println("Member address updated.");
-            Command Scmd = new ShowMemCommand(xmem);
-            Scmd.execute();
+                    System.out.println("Member address updated.");
+                    Command Scmd = new ShowMemCommand(xmem);
+                    Scmd.execute();
 
         } else if(u2.length()==8 || u2.length()==9){
-            for (Xmember x1 : xmem) {
-                if (u2.equals(x1.getId())) {
-                    System.out.println("Enter address: ");
+                        for (Xmember x1 : xmem) {
+                           
+                            if (u2.equals(x1.getId())) {
+                                System.out.println("Enter address: ");
 
-                    String NewAddress = br.readLine();
+                                String NewAddress = br.readLine();
 
-                    x1.setPostal(NewAddress);
+                                x1.setPostal(NewAddress);
 
-                } else {
-                    System.out.println("assignment is suck");
-                }
-            }
+                            } else {
+                                System.out.println("Id  no exist or id wrong length");
+                           
+                            }
+                        }
         }
     }
 
