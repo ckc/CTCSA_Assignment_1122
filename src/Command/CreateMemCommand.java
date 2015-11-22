@@ -1,6 +1,5 @@
 package Command;
 
-//import del.Xmem;
 import AJCS.CompanyMember;
 import AJCS.PrimaryMember;
 import WLTS.VIP;
@@ -25,7 +24,7 @@ public class CreateMemCommand implements Command {
     public CareTaker ct;
 
     //Mememtor save into stack
-    public Stack<Command> s1;
+    //public Stack<Command> s1;
 
     public String[] split1;
 
@@ -64,19 +63,17 @@ public class CreateMemCommand implements Command {
 
                         PrimaryMember p1 = new PrimaryMember(split1[0], expirationDate, split1[2], split1[3]);
                         x1 = new MTXAdapter(p1);
-                        xmember.add(new MTXAdapter(p1));
+                        xmember.add(x1);
                         System.out.println("New member record created. ");
-                        ct.saveMyCommand(this, xmember.lastElement());
                         System.out.println();
 
                         break;
 
                     case "Com":
                         CompanyMember p2 = new CompanyMember(split1[0], expirationDate, split1[2], split1[3]);
-                        MTXAdapter x2 = new MTXAdapter(p2);
-                        xmember.add(x2);
+                        x1 = new MTXAdapter(p2);
+                        xmember.add(x1);
                         System.out.println("New member record created. ");
-                        ct.saveMyCommand(this, xmember.lastElement());
                         System.out.println();
 
                         break;
@@ -84,10 +81,9 @@ public class CreateMemCommand implements Command {
                     case "VIP":
                         int VIPid = Integer.parseInt(split1[0]);
                         VIP p3 = new VIP(VIPid, split1[2], expirationDate, split1[3]);
-                        CTXAdapter x3 = new CTXAdapter(p3);
-                        xmember.add(x3);
+                        x1 = new CTXAdapter(p3);
+                        xmember.add(x1);
                         System.out.println("New member record created. ");
-                        ct.saveMyCommand(this, xmember.lastElement());
                         System.out.println();
 
                         break;
@@ -95,10 +91,9 @@ public class CreateMemCommand implements Command {
                     case "VIPF":
                         int VIPFid = Integer.parseInt(split1[0]);
                         VIP_Family p4 = new VIP_Family(VIPFid, split1[2], expirationDate, split1[3]);
-                        CTXAdapter x4 = new CTXAdapter(p4);
-                        xmember.add(x4);
+                        x1 = new CTXAdapter(p4);
+                        xmember.add(x1);
                         System.out.println("New member record created. ");
-                        ct.saveMyCommand(this, xmember.lastElement());
                         System.out.println();
 
                         break;
@@ -118,13 +113,13 @@ public class CreateMemCommand implements Command {
     }
 
     @Override
-    public void undo(Xmember xmem) {
-        xmember.remove(xmem);
+    public void undo() {
+        xmember.remove(x1);
     }
 
     @Override
     public void redo() {
-        
+        xmember.add(x1);
     }
 
 }

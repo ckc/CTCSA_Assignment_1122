@@ -48,9 +48,9 @@ public abstract class Client {
         return expiryDate;
     }
 
-    public void setExpiryDate(int i) {
+    public void setExpiryDate(Date expiryDate) {
         
-         Date date = new Date();
+     /*    Date date = new Date();
         Calendar cal = Calendar.getInstance();
      
         cal.add(Calendar.YEAR, i);
@@ -60,8 +60,8 @@ public abstract class Client {
         java.util.Date expirationDate = cal.getTime();
           
         dateFormat.format(expirationDate);
-        
-        this.expiryDate = expirationDate;
+        */
+        this.expiryDate = expiryDate;
     }
 
     public String getfulllName() {

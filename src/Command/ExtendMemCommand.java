@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package Command;
 
 import Command.Command;
@@ -15,6 +10,7 @@ import java.util.Date;
 import java.util.Stack;
 import java.util.Vector;
 
+
 /**
  *
  * @author jackh
@@ -24,10 +20,11 @@ public class ExtendMemCommand implements Command {
     //Mememtor save into stack
     //public Stack <Command>s1;
     
-    public Vector<Xmember> xmem;
-
+    public Vector<Xmember> xmember;
+    private Date date;
+    Xmember x1;
     public ExtendMemCommand(Vector<Xmember> xmem) {
-        this.xmem = xmem;
+        this.xmember = xmem;
     }
 
     public void execute() throws Exception {
@@ -42,15 +39,24 @@ public class ExtendMemCommand implements Command {
             
                 
             default:
-                for (Xmember x1 : xmem) {
+                for (Xmember x1 : xmember) {
                             if (u2.equals( x1.getId())) {
                                
-                                
-                               x1.setGoodTill(2);
+                                Date goodTill = x1.getGoodTill();
+        Calendar cal = Calendar.getInstance();
+    cal.setTime(goodTill);
+        cal.add(Calendar.YEAR, 1);
+
+
+        java.util.Date expirationDate = cal.getTime();
+
+        dateFormat.format(expirationDate);
+                               x1.setGoodTill(expirationDate);
                                 System.out.println("Membership extended: ");
                                 
                                 System.out.println(dateFormat.format(x1.getGoodTill())+"\t"+x1.getId()+"\t"+x1.getType()+"\t"+x1.getPostal());
-
+                                this.x1 = x1;
+                                this.date = x1.getGoodTill();
                                 break;
                             }else{
                                 System.out.println("Some Unexpected error");
@@ -59,12 +65,12 @@ public class ExtendMemCommand implements Command {
         }
     }
 
-    public void undo(Xmember xmem) {
-
+    public void undo() {
+        x1.setGoodTill(this.date);
     }
 
     public void redo() {
-
+        undo();
     }
 
 }

@@ -20,6 +20,8 @@ public class UpdateAddressCommand implements Command {
     //public Stack <Command>s1;
     
     Vector<Xmember> xmem;
+    String address;
+    Xmember xm;
 
     public UpdateAddressCommand(Vector<Xmember> xmem) {
         this.xmem = xmem;
@@ -50,7 +52,8 @@ public class UpdateAddressCommand implements Command {
                                 String NewAddress = br.readLine();
                                 x1.setPostal(NewAddress);
                                 System.out.println("Member address updated.");
-
+this.xm=x1;
+this.address=x1.getPostal();
                                 System.out.println();
 
                                 break;
@@ -61,12 +64,12 @@ public class UpdateAddressCommand implements Command {
         } 
     }
 
-    public void undo(Xmember xmem) {
-
+    public void undo() {
+        xm.setPostal(address);
     }
 
     public void redo() {
-
+        undo();
     }
 
 }

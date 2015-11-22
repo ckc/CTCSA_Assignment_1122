@@ -96,7 +96,7 @@ public class ShowMemCommand implements Command {
 //end
     
     @Override
-    public void undo(Xmember xmem) {
+    public void undo() {
 
     }
 

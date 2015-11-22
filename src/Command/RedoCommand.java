@@ -46,7 +46,7 @@ public class RedoCommand implements Command {
     }
 
     @Override
-    public void undo(Xmember xmem) {
+    public void undo() {
         
     }
 

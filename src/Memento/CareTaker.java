@@ -21,10 +21,10 @@ public class CareTaker {
         Command cmd;
         Memento memento = new Memento();
 
-    public void saveMyCommand(Command cmd, Xmember xMember){
+    public void saveMyCommand(Command cmd){
       if(cmd instanceof CreateMemCommand || cmd instanceof ExtendMemCommand || cmd instanceof UpdateAddressCommand){
         this.cmd = cmd;
-        memento = new Memento(cmd, xMember);
+        memento = new Memento(cmd);
        undo.push(memento);
        //redo.clear();
       }

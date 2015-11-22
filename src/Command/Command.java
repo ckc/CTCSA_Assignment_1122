@@ -11,7 +11,7 @@ import Xmem.Xmember;
 public interface Command {
 
     public void execute()throws Exception;
-    public void undo(Xmember xmember);
+    public void undo();
     public void redo();
     
     

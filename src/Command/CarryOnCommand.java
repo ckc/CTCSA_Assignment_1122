@@ -38,7 +38,7 @@ public class CarryOnCommand implements Command {
         }
     }
 
-    public void undo(Xmember xmem) {
+    public void undo() {
 
     }
 

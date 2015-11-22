@@ -29,9 +29,8 @@ public class Memento {
     public Memento() {
     }
    
-    public Memento(Command mycommand, Xmember xmember) {
+    public Memento(Command mycommand) {
         tempCommand.push(mycommand);
-        tempXmember.push(xmember);
        
     }
 
@@ -45,7 +44,11 @@ public class Memento {
     
     
     public void restore() {
-        getSavedCommand().undo(getTempXmember());
+        getSavedCommand().undo();
+    }
+    
+    public void redo(){
+        getSavedCommand().redo();
     }
 
 }

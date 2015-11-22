@@ -69,6 +69,8 @@ public class Main {
                     cmd.execute();
                     Command ccocmd = Creators[3].createCmd();
                     ccocmd.execute(); 
+                    ct.saveMyCommand(cmd);
+                  //ct.saveMyCommand(cmd, xmem);
                   /*  s1.push(cmd);
                     s1.push(ccocmd);
                     */
@@ -82,13 +84,14 @@ public class Main {
                 case "A":
                     cmd = Creators[2].createCmd();
                     cmd.execute();
+                    ct.saveMyCommand(cmd);
                     break;
                 case "e":
                 case "E":
                     cmd = Creators[4].createCmd();
                     cmd.execute();
+                    ct.saveMyCommand(cmd);
                     break;
-
                 case "u":
                 case "U":
                     cmd = Creators[5].createCmd();

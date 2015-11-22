@@ -66,18 +66,18 @@ public abstract class Member {
         return goodTill;
     }
 
-    public void setGoodTill(int i) {
-        Date date = new Date();
+    public void setGoodTill(Date goodTill) {
+     /*   Date date = new Date();
         Calendar cal = Calendar.getInstance();
-        cal.add(Calendar.YEAR, i);
+        cal.add(Calendar.YEAR, 1);
 
         SimpleDateFormat dateFormat = new SimpleDateFormat("dd-MM-yyyy");
 
         java.util.Date expirationDate = cal.getTime();
 
         dateFormat.format(expirationDate);
-
-        this.goodTill = expirationDate;
+*/
+        this.goodTill = goodTill;
 
     }
 
