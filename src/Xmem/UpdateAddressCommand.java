@@ -36,18 +36,17 @@ public class UpdateAddressCommand implements Command {
                 Scmd.execute();
                 break;
             default:
+                
                 for (Xmember x1 : xmem) {
                     if (u2.equals( x1.getId())) {
-
                         System.out.println("Enter address: ");
-
                         String NewAddress = br.readLine();
                         x1.setPostal(NewAddress);
-                        System.out.println("Member address updated.");
+                        System.out.println("Member address updated.");           
                         break;
                     }
                 }
-        }
+        } 
     }
 
     public void undo() {

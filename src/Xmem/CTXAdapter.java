@@ -53,8 +53,9 @@ public class CTXAdapter implements Xmember {
         return client.getHomeAddress();
     }
 
-    public void setPostal(String postalAddress) {
-        postalAddress = client.getHomeAddress();
+    public void setPostal(String postal) {
+        //postal = client.getHomeAddress();
+        client.setHomeAddress(postal);
     }
 
     public Date getGoodTill() {
@@ -62,7 +63,8 @@ public class CTXAdapter implements Xmember {
     }
 
     public void setGoodTill(int i) {
-        goodTill = client.getExpiryDate();
+        //goodTill = client.getExpiryDate();
+        client.setExpiryDate(i);
     }
 
     public String toString() {

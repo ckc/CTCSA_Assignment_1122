@@ -25,7 +25,7 @@ public interface Xmember {
     public void setPostal(String postalAddress);
 
     public Date getGoodTill();
-    public void setGoodTill(int i);
+    public void setGoodTill();
 
     // for searching Xmember
     public String toString();

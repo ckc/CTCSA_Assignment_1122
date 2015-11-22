@@ -29,16 +29,17 @@ public class ExtendMemCommand implements Command {
             InputStreamReader is = new InputStreamReader(System.in);
             BufferedReader br = new BufferedReader(is);
 
-            String e = br.readLine();
             System.out.println("Enter id: ");
+            String e = br.readLine();
+           
             switch (e) {
-                case "a":
+                case " ":
                     System.out.println("Some unexcepted error.");
                     break;
                 default:
                     for (Xmember e1 : xmem) {
                         if (e.equals(e1.getId())) {
-                            e1.setGoodTill(1);
+                            e1.setGoodTill();
                             break;
                         }
                     }break;

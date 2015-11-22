@@ -15,10 +15,13 @@ import java.util.Vector;
  * @author jackh
  */
 public class MTXAdapter implements Xmember {
-
-    Member m1;
  
+    private String id;
+    private String name;
+    private String postal;
     private Date goodTill;
+    
+    Member m1;
     public MTXAdapter(Member m1) {
         this.m1 = m1;
     }
@@ -48,10 +51,11 @@ public class MTXAdapter implements Xmember {
         return m1.getPostal();
     }
     public void setPostal(String postalAddress) {
-        m1.setPostal(postalAddress);
+       int NewAddress =Integer.parseInt(postalAddress);
+        m1.setGoodTill(NewAddress);
+        //m1.setPostal(postalAddress);
+        
     }
-
-    
     public Date getGoodTill(){
       return m1.getGoodTill();
     }

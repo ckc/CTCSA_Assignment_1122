@@ -20,7 +20,7 @@ public class ExtendMemCommandCreator extends Creator {
     }
 
     public Command createCmd() {
-        Command c = new CreateMemCommand(xmember);
+        Command c = new ExtendMemCommand(xmember);
         return c;
     }
 }
