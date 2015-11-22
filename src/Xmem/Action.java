@@ -12,10 +12,9 @@ package Xmem;
 
 public class Action {
 	private int option;
-	//private Shape shape;
-	//private int index;
 	
-	public Action(int option/*, Shape shape, int index*/) {
+	
+	public Action(int option) {
 		this.option = option;
 		/*this.shape = shape;
 		this.index = index;*/

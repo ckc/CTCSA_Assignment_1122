@@ -3,8 +3,11 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Xmem;
+package CommandCreator;
 
+import Command.Command;
+import Command.ExtendMemCommand;
+import Xmem.Xmember;
 import java.util.Vector;
 
 /**

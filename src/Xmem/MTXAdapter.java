@@ -5,6 +5,7 @@
  */
 package Xmem;
 
+import AJCS.Member;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
@@ -26,7 +27,7 @@ public class MTXAdapter implements Xmember {
         this.m1 = m1;
     }
     public String getType() {
-        if( m1 instanceof Xmem.CompanyMember){
+        if( m1 instanceof AJCS.CompanyMember){
             return "CompanyMember";
         }else{
             return "PrimaryMember";

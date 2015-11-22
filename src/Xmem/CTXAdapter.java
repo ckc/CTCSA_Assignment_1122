@@ -5,6 +5,7 @@
  */
 package Xmem;
 
+import WLTS.Client;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
@@ -26,7 +27,7 @@ public class CTXAdapter implements Xmember {
     }
 
     public String getType() {
-        if (client instanceof Xmem.VIP) {
+        if (client instanceof WLTS.VIP) {
             return "VIP";
         } else {
             return "VIP_Family";
