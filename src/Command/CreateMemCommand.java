@@ -63,7 +63,7 @@ public class CreateMemCommand implements Command {
                     case "Pri":
 
                         PrimaryMember p1 = new PrimaryMember(split1[0], expirationDate, split1[2], split1[3]);
-                        //uper.XMember x1 = new MTXAdapter(p1);
+                        x1 = new MTXAdapter(p1);
                         xmember.add(new MTXAdapter(p1));
                         System.out.println("New member record created. ");
                         ct.saveMyCommand(this, xmember.lastElement());
@@ -124,7 +124,7 @@ public class CreateMemCommand implements Command {
 
     @Override
     public void redo() {
-        //throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        
     }
 
 }

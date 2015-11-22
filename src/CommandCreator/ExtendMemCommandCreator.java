@@ -19,7 +19,7 @@ public class ExtendMemCommandCreator extends Creator {
 
     private Vector<Xmember> xmember;
        //Mememtor save into stack
-        public Stack <Command>s1;
+        //public Stack <Command>s1;
 
     public ExtendMemCommandCreator(Vector<Xmember> xmember) {
         this.xmember = xmember;

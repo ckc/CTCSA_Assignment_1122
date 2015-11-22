@@ -1,11 +1,9 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package Memento;
 
 import Command.Command;
+import Command.CreateMemCommand;
+import Command.ExtendMemCommand;
+import Command.UpdateAddressCommand;
 import Xmem.Xmember;
 import java.util.Stack;
 import java.util.Vector;
@@ -18,14 +16,18 @@ public class CareTaker {
       
 
          //Mememtor save into stack
-        Stack<Memento> s1 = new Stack();
+        Stack<Memento> undo = new Stack();
+        Stack<Memento> redo = new Stack();
         Command cmd;
         Memento memento = new Memento();
 
     public void saveMyCommand(Command cmd, Xmember xMember){
+      if(cmd instanceof CreateMemCommand || cmd instanceof ExtendMemCommand || cmd instanceof UpdateAddressCommand){
         this.cmd = cmd;
         memento = new Memento(cmd, xMember);
-       s1.push(memento);
+       undo.push(memento);
+       //redo.clear();
+      }
     }
 
     public Command getCmd() {
@@ -34,17 +36,17 @@ public class CareTaker {
     
     
     public void undo(){
-        Memento m1 = (Memento)s1.lastElement();
+        Memento m1 = (Memento)undo.lastElement();
         m1.restore();
-        s1.removeElement(m1);
-        
+        undo.removeElement(m1);
+        redo.push(m1);
     }
    
     public void redo(){
-        //Memento m1 = (Memento)undoList.lastElement();
-        //m1.restore();
-        //undoList.removeElement(m1);
-        
+        Memento m1 = (Memento)redo.lastElement();
+        m1.restore();
+        redo.removeElement(m1);
+        undo.push(m1);
     }
       
 }

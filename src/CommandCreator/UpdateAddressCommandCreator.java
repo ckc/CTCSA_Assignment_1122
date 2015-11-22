@@ -20,7 +20,7 @@ public class UpdateAddressCommandCreator extends Creator {
 
     private Vector<Xmember> xmem;
     //Mememtor save into stack
-    public Stack <Command>s1;
+    //public Stack <Command>s1;
     
     public UpdateAddressCommandCreator(Vector<Xmember> xmem) {
         this.xmem = xmem;
@@ -29,7 +29,7 @@ public class UpdateAddressCommandCreator extends Creator {
     @Override
     public Command createCmd() {
         Command c = new UpdateAddressCommand(xmem);
-        s1.add(c);
+        //s1.add(c);
         return c;
         
     }

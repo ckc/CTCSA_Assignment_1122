@@ -9,7 +9,7 @@ import java.util.Stack;
  */
 public class MyCommand {
 
-     public Stack <Command>s1;
+     //public Stack <Command>s1;
      int State;
      
      Stack <Command> tempCommand;
@@ -18,7 +18,7 @@ public class MyCommand {
      
      
     public MyCommand(Stack <Command>s1) {
-        this.s1 = tempCommand;
+        //this.s1 = tempCommand;
     }
 
     public void setState(int State) {

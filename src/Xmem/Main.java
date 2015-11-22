@@ -13,6 +13,7 @@ import CommandCreator.UpdateAddressCommandCreator;
 import CommandCreator.ShowMemCommandCreator;
 import CommandCreator.CarryOnCommandCreator;
 import CommandCreator.ExtendMemCommandCreator;
+import CommandCreator.RedoCommandCreator;
 import CommandCreator.UndoCommandCreator;
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -49,7 +50,8 @@ public class Main {
             new UpdateAddressCommandCreator(xmem),
             new CarryOnCommandCreator(contin),
             new ExtendMemCommandCreator(xmem),
-            new UndoCommandCreator(ct)
+            new UndoCommandCreator(ct),
+            new RedoCommandCreator(ct)
             };
 
         while (cont) {
@@ -95,8 +97,9 @@ public class Main {
                     break;
                 case "r":
                 case "R":
-                    cmd = Creator[6].createCmd();
+                    cmd = Creators[6].createCmd();
                     System.out.println(" r = redo");
+                    cmd.execute();
                     break;
                 case "l":
                 case "L":

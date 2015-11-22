@@ -10,7 +10,7 @@ import java.util.Vector;
  *
  * @author ckc
  */
-public class UndoCommand implements Command {
+public class RedoCommand implements Command {
 
     Vector<Xmember> xmem;
     //Stack<Action> history;
@@ -20,7 +20,7 @@ public class UndoCommand implements Command {
     BufferedReader br = new BufferedReader(is);
     /* Shape shape; */
 
-    public UndoCommand(CareTaker ct) {
+    public RedoCommand(CareTaker ct) {
         this.xmem = xmem;
         //this.history = history;
         this.ct = ct;
@@ -29,7 +29,7 @@ public class UndoCommand implements Command {
 
     public void execute() {
         try {
-            ct.undo();
+            ct.redo();
             //Action action = history.pop();
             //switch (action.getOption()) {
                 //case 'c': 
