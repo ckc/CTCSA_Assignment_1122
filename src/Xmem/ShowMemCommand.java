@@ -47,10 +47,8 @@ public class ShowMemCommand implements Command {
                     System.out.println("Expire Date\tID\tType\t\tName\t\tAddress");
                     for (Xmember x1 : xmem) {
                         if (a1.equals("*999")) {
-
                             System.out.println(dateFormat.format(x1.getGoodTill()) + ",\t" + x1.getId() + ",\t" + x1.getType()
                                     + ",\t\t" + x1.getName() + ",\t\t" + x1.getPostal());
-                            System.out.println();
 
                         }
                     }

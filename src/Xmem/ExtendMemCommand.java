@@ -28,26 +28,22 @@ public class ExtendMemCommand implements Command {
         try {
             InputStreamReader is = new InputStreamReader(System.in);
             BufferedReader br = new BufferedReader(is);
-
-            //System.out.println("Enter id: ");
-            String e = br.readLine();
-
+            String u2 = br.readLine();
             for (Xmember x1 : xmem) {
-                        if (e.equals(x1.getId())) {
-                            System.out.println("Enter id: ");
-                            x1.setGoodTill(1);
-                            
-                            System.out.println("Membership extended: ");
-                            
-                            Command ShowExtendedMem1 =new ShowMemCommand(x1.getId()); 
-                            
-                        }
-            }
+                 if (u2.equals(x1.getId())) {
 
+                        System.out.println("Enter id: ");
+                        x1.setGoodTill(1);
+                        System.out.println("Membership extended: ");
+                        break;
+
+                }
+            }
         } catch (Exception e) {
             System.out.println("Some unexcepted.");
             e.printStackTrace();
         }
+
     }
 
     public void undo() {
