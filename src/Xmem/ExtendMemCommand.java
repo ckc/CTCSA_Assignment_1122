@@ -7,6 +7,7 @@ package Xmem;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
+import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.Vector;
@@ -18,32 +19,38 @@ import java.util.Vector;
 public class ExtendMemCommand implements Command {
 
     public Vector<Xmember> xmem;
-    Xmember x1;
 
     public ExtendMemCommand(Vector<Xmember> xmem) {
         this.xmem = xmem;
     }
 
     public void execute() throws Exception {
-        try {
-            InputStreamReader is = new InputStreamReader(System.in);
-            BufferedReader br = new BufferedReader(is);
-            String u2 = br.readLine();
-            for (Xmember x1 : xmem) {
-                 if (u2.equals(x1.getId())) {
+        InputStreamReader is = new InputStreamReader(System.in);
+        BufferedReader br = new BufferedReader(is);
+          SimpleDateFormat dateFormat = new SimpleDateFormat("dd-MM-yyyy");
 
-                        System.out.println("Enter id: ");
-                        x1.setGoodTill(1);
-                        System.out.println("Membership extended: ");
-                        break;
+          System.out.println("Enter id: ");
+          String u2 = br.readLine();
+          
+          switch (u2) {
+            
+                
+            default:
+                for (Xmember x1 : xmem) {
+                            if (u2.equals( x1.getId())) {
+                               
+                                
+                               x1.setGoodTill(2);
+                                System.out.println("Membership extended: ");
+                                
+                                System.out.println(dateFormat.format(x1.getGoodTill())+"\t"+x1.getId()+"\t"+x1.getType()+"\t"+x1.getPostal());
 
+                                break;
+                            }else{
+                                System.out.println("Some Unexpected error");
+                            }
                 }
-            }
-        } catch (Exception e) {
-            System.out.println("Some unexcepted.");
-            e.printStackTrace();
         }
-
     }
 
     public void undo() {

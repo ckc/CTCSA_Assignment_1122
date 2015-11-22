@@ -44,7 +44,7 @@ public class Main {
                     + "= undo, r = redo, l = list undo/redo, X = eXit system");
 
             String line = br.readLine();
-
+            
             switch (line) {
                 case "c":
                 case "C":
@@ -68,7 +68,7 @@ public class Main {
                     cmd = Creators[4].createCmd();
                     cmd.execute();
                     break;
- 
+
                 case "u":
                 case "U":
                     System.out.println(" u = undo");

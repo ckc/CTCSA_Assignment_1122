@@ -42,10 +42,12 @@ public abstract class Client {
     }
 
     public Date getExpiryDate() {
-             return expiryDate;
+          SimpleDateFormat dateFormat = new SimpleDateFormat("dd-MM-yyyy"); 
+          dateFormat.format(expiryDate);
+        return expiryDate;
     }
 
-    public void setExpiryDate(int i ) {
+    public void setExpiryDate(int i) {
         
          Date date = new Date();
         Calendar cal = Calendar.getInstance();
@@ -53,10 +55,12 @@ public abstract class Client {
         cal.add(Calendar.YEAR, i);
         
         SimpleDateFormat dateFormat = new SimpleDateFormat("dd-MM-yyyy");
+          
+        java.util.Date expirationDate = cal.getTime();
+          
+        dateFormat.format(expirationDate);
         
-        dateFormat.format(date);
-        
-        this.expiryDate = date;
+        this.expiryDate = expirationDate;
     }
 
     public String getfulllName() {
