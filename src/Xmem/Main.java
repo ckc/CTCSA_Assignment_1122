@@ -13,10 +13,12 @@ import CommandCreator.UpdateAddressCommandCreator;
 import CommandCreator.ShowMemCommandCreator;
 import CommandCreator.CarryOnCommandCreator;
 import CommandCreator.ExtendMemCommandCreator;
+import CommandCreator.UndoCommandCreator;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import Memento.*;
+import Memento.CareTaker;
 
 import java.util.Stack;
 
@@ -32,7 +34,7 @@ public class Main {
     public static void main(String[] args) throws Exception {
         // TODO code application logic here
         Vector<Xmember> xmem = new Vector<Xmember>();
-        
+        CareTaker ct = new CareTaker();
         Memento m1 = new Memento();
         
         boolean contin = true;
@@ -42,11 +44,12 @@ public class Main {
         BufferedReader br = new BufferedReader(is);
 
         Command cmd;
-        Creator Creators[] = {new CreateMemCommandCreator(xmem),
+        Creator Creators[] = {new CreateMemCommandCreator(xmem, ct),
             new ShowMemCommandCreator(xmem),
             new UpdateAddressCommandCreator(xmem),
             new CarryOnCommandCreator(contin),
             new ExtendMemCommandCreator(xmem),
+            new UndoCommandCreator(ct)
             };
 
         while (cont) {
@@ -86,10 +89,13 @@ public class Main {
 
                 case "u":
                 case "U":
+                    cmd = Creators[5].createCmd();
                     System.out.println(" u = undo");
+                    cmd.execute();
                     break;
                 case "r":
                 case "R":
+                    cmd = Creator[6].createCmd();
                     System.out.println(" r = redo");
                     break;
                 case "l":

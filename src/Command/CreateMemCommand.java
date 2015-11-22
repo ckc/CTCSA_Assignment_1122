@@ -1,9 +1,3 @@
-
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package Command;
 
 //import del.Xmem;
@@ -17,6 +11,7 @@ import Xmem.Xmember;
 import java.io.*;
 import java.text.SimpleDateFormat;
 import java.util.*;
+import Memento.CareTaker;
 
 import java.util.Date;
 
@@ -27,6 +22,7 @@ import java.util.Date;
 public class CreateMemCommand implements Command {
 
     public Vector<Xmember> xmember;
+    public CareTaker ct;
 
     //Mememtor save into stack
     public Stack<Command> s1;
@@ -37,8 +33,9 @@ public class CreateMemCommand implements Command {
     private boolean contin = true;
     Xmember x1;
 
-    public CreateMemCommand(Vector<Xmember> xmem) {
+    public CreateMemCommand(Vector<Xmember> xmem, Memento.CareTaker ct) {
         this.xmember = xmem;
+        this.ct = ct;
     }
 
     public void execute() {
@@ -69,6 +66,7 @@ public class CreateMemCommand implements Command {
                         //uper.XMember x1 = new MTXAdapter(p1);
                         xmember.add(new MTXAdapter(p1));
                         System.out.println("New member record created. ");
+                        ct.saveMyCommand(this, xmember.lastElement());
                         System.out.println();
 
                         break;
@@ -78,6 +76,7 @@ public class CreateMemCommand implements Command {
                         MTXAdapter x2 = new MTXAdapter(p2);
                         xmember.add(x2);
                         System.out.println("New member record created. ");
+                        ct.saveMyCommand(this, xmember.lastElement());
                         System.out.println();
 
                         break;
@@ -88,6 +87,7 @@ public class CreateMemCommand implements Command {
                         CTXAdapter x3 = new CTXAdapter(p3);
                         xmember.add(x3);
                         System.out.println("New member record created. ");
+                        ct.saveMyCommand(this, xmember.lastElement());
                         System.out.println();
 
                         break;
@@ -98,6 +98,7 @@ public class CreateMemCommand implements Command {
                         CTXAdapter x4 = new CTXAdapter(p4);
                         xmember.add(x4);
                         System.out.println("New member record created. ");
+                        ct.saveMyCommand(this, xmember.lastElement());
                         System.out.println();
 
                         break;
@@ -108,7 +109,7 @@ public class CreateMemCommand implements Command {
             }
         } catch (Exception e) {
             System.out.println("Input data length wrong.");
-            System.exit(0);
+            //System.exit(0);
             e.printStackTrace();
 
             System.out.println(
@@ -117,8 +118,8 @@ public class CreateMemCommand implements Command {
     }
 
     @Override
-    public void undo() {
-        //throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public void undo(Xmember xmem) {
+        xmember.remove(xmem);
     }
 
     @Override

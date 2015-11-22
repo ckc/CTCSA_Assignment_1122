@@ -21,7 +21,7 @@ public class ShowMemCommandCreator extends Creator {
     private Vector<Xmember> xmem;    
     private String id ;
     //Mememtor save into stack
-    public Stack <Command>s1;
+    //public Stack <Command>s1;
 
     public ShowMemCommandCreator(Vector<Xmember> xmem) {
         this.xmem = xmem;
@@ -34,7 +34,7 @@ public class ShowMemCommandCreator extends Creator {
     @Override
     public Command createCmd() {
         Command c = new ShowMemCommand(xmem);
-        s1.add(c);
+//        s1.add(c);
         return c;
       
     }

@@ -23,19 +23,29 @@ import Xmem.*;
  * @author jackh
  */
 public class Memento {
-    Stack <Command>tempCommand;
+    Stack <Command>tempCommand = new Stack<>();
+    Stack <Xmember> tempXmember = new Stack<>();
 
     public Memento() {
     }
    
-    
-    public Memento(MyCommand mycommand) {
-        tempCommand = mycommand;
-        
+    public Memento(Command mycommand, Xmember xmember) {
+        tempCommand.push(mycommand);
+        tempXmember.push(xmember);
+       
     }
 
-    public Stack <Command>  getSavedCommand() {
-        return tempCommand;
+    public Command getSavedCommand() {
+        return tempCommand.pop();
+    }
+
+    public Xmember getTempXmember() {
+        return tempXmember.pop();
+    }
+    
+    
+    public void restore() {
+        getSavedCommand().undo(getTempXmember());
     }
 
 }

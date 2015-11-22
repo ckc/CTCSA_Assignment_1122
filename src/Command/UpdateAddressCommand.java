@@ -17,7 +17,7 @@ import java.util.*;
 public class UpdateAddressCommand implements Command {
     
     //Mememtor save into stack
-    public Stack <Command>s1;
+    //public Stack <Command>s1;
     
     Vector<Xmember> xmem;
 
@@ -61,7 +61,7 @@ public class UpdateAddressCommand implements Command {
         } 
     }
 
-    public void undo() {
+    public void undo(Xmember xmem) {
 
     }
 

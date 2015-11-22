@@ -19,7 +19,7 @@ public class CarryOnCommandCreator  extends Creator {
     //private Vector<Xmember> xmember;
      private boolean contin = true;
         //Mememtor save into stack
-         public Stack <Command>s1;
+         //public Stack <Command>s1;
 
     public CarryOnCommandCreator(boolean contin) {
         this.contin = contin;
@@ -27,7 +27,7 @@ public class CarryOnCommandCreator  extends Creator {
 
     public Command createCmd() {
         Command c = new CarryOnCommand(contin);
-        s1.add(c);
+        //s1.add(c);
         return c;
     }
     @Override

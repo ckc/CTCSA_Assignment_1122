@@ -18,12 +18,20 @@ public class CareTaker {
       
 
          //Mememtor save into stack
-        Stack s1 = new Stack();
+        Stack<Memento> s1 = new Stack();
+        Command cmd;
+        Memento memento = new Memento();
 
-    public void saveMyCommand(Stack s1){
-       Memento m1 = new Memento();
-
+    public void saveMyCommand(Command cmd, Xmember xMember){
+        this.cmd = cmd;
+        memento = new Memento(cmd, xMember);
+       s1.push(memento);
     }
+
+    public Command getCmd() {
+        return cmd;
+    }
+    
     
     public void undo(){
         Memento m1 = (Memento)s1.lastElement();
@@ -33,9 +41,9 @@ public class CareTaker {
     }
    
     public void redo(){
-        Memento m1 = (Memento)undoList.lastElement();
-        m1.restore();
-        undoList.removeElement(m1);
+        //Memento m1 = (Memento)undoList.lastElement();
+        //m1.restore();
+        //undoList.removeElement(m1);
         
     }
       

@@ -22,7 +22,7 @@ import java.util.Vector;
 public class ExtendMemCommand implements Command {
 
     //Mememtor save into stack
-    public Stack <Command>s1;
+    //public Stack <Command>s1;
     
     public Vector<Xmember> xmem;
 
@@ -59,7 +59,7 @@ public class ExtendMemCommand implements Command {
         }
     }
 
-    public void undo() {
+    public void undo(Xmember xmem) {
 
     }
 

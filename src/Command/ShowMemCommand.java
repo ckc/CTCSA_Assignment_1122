@@ -18,7 +18,7 @@ import java.util.*;
 public class ShowMemCommand implements Command {
     
     //Mememtor save into stack
-    public Stack <Command>s1;
+    //public Stack <Command>s1;
     
     Vector<Xmember> xmem;
     String id;
@@ -96,7 +96,7 @@ public class ShowMemCommand implements Command {
 //end
     
     @Override
-    public void undo() {
+    public void undo(Xmember xmem) {
 
     }
 

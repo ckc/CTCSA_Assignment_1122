@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package CommandCreator;
 
 //import del.Xmem;
@@ -11,6 +6,7 @@ import Command.CreateMemCommand;
 import Xmem.Xmember;
 import java.util.Stack;
 import java.util.Vector;
+import Memento.CareTaker;
 
 /**
  *
@@ -19,18 +15,20 @@ import java.util.Vector;
 public class CreateMemCommandCreator extends Creator {
 
     private Vector<Xmember> xmember;
+    private CareTaker ct;
        //Mememtor save into stack
-        public Stack <Command>s1;
+        //public Stack <Command>s1;
 
-    public CreateMemCommandCreator(Vector<Xmember> xmember) {
+    public CreateMemCommandCreator(Vector xmember, CareTaker ct) {
         this.xmember = xmember;
+        this.ct = ct;
     }
 
    
 
     public Command createCmd() {
-        Command c = new CreateMemCommand(xmember);
-        s1.add(c);
+        Command c = new CreateMemCommand(xmember, ct);
+        //s1.add(c);
         return c;
     }
 
