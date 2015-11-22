@@ -26,7 +26,10 @@ import java.util.Date;
 public class CreateMemCommand implements Command {
 
     public Vector<Xmember> xmember;
-
+    
+    //Mememtor save into stack
+    public Stack <Command>s1;
+    
     public String[] split1;
 
     //Only for this command use

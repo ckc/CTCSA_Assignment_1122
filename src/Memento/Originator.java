@@ -1,0 +1,31 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package Memento;
+
+import Xmem.Xmember;
+import java.util.Vector;
+
+/**
+ *
+ * @author jackh
+ */
+public class Originator {
+     Vector undoList = new Vector();
+      //Vector redoList = new Vector();
+      private Vector<Xmember> xmember;
+
+    public Originator(Vector<Xmember> xmember) {
+        this.xmember = xmember;
+    }
+
+    public void restore(){
+    
+    }
+
+      public void redo(){
+    
+    }
+}

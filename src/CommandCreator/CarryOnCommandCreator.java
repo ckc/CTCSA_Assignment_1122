@@ -7,6 +7,7 @@ package CommandCreator;
 
 import Command.CarryOnCommand;
 import Command.Command;
+import java.util.Stack;
 import java.util.Vector;
 
 /**
@@ -17,6 +18,8 @@ public class CarryOnCommandCreator  extends Creator {
 
     //private Vector<Xmember> xmember;
      private boolean contin = true;
+        //Mememtor save into stack
+         public Stack <Command>s1;
 
     public CarryOnCommandCreator(boolean contin) {
         this.contin = contin;
@@ -24,6 +27,7 @@ public class CarryOnCommandCreator  extends Creator {
 
     public Command createCmd() {
         Command c = new CarryOnCommand(contin);
+        s1.add(c);
         return c;
     }
     @Override

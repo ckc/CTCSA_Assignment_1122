@@ -5,10 +5,23 @@
  */
 package Memento;
 
+import Command.Command;
+import java.util.Stack;
+
 /**
  *
  * @author jackh
  */
 public class Memento {
-    
+    Stack <Command>tempCommand;
+  
+
+    public Memento(Stack <Command> CommandToSave) {
+        tempCommand = CommandToSave;
+    }
+
+    public Stack <Command>  getSavedCommand() {
+        return tempCommand;
+    }
+
 }

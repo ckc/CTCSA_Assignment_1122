@@ -16,7 +16,10 @@ import java.util.*;
  * @author jackh
  */
 public class ShowMemCommand implements Command {
-
+    
+    //Mememtor save into stack
+    public Stack <Command>s1;
+    
     Vector<Xmember> xmem;
     String id;
 

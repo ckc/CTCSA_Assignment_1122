@@ -9,6 +9,7 @@ package CommandCreator;
 import Command.Command;
 import Command.ShowMemCommand;
 import Xmem.Xmember;
+import java.util.Stack;
 import java.util.Vector;
 
 /**
@@ -19,6 +20,8 @@ public class ShowMemCommandCreator extends Creator {
 
     private Vector<Xmember> xmem;    
     private String id ;
+    //Mememtor save into stack
+    public Stack <Command>s1;
 
     public ShowMemCommandCreator(Vector<Xmember> xmem) {
         this.xmem = xmem;
@@ -31,6 +34,7 @@ public class ShowMemCommandCreator extends Creator {
     @Override
     public Command createCmd() {
         Command c = new ShowMemCommand(xmem);
+        s1.add(c);
         return c;
       
     }

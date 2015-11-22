@@ -12,6 +12,7 @@ import java.io.InputStreamReader;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.Stack;
 import java.util.Vector;
 
 /**
@@ -20,6 +21,9 @@ import java.util.Vector;
  */
 public class ExtendMemCommand implements Command {
 
+    //Mememtor save into stack
+    public Stack <Command>s1;
+    
     public Vector<Xmember> xmem;
 
     public ExtendMemCommand(Vector<Xmember> xmem) {

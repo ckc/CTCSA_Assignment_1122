@@ -15,7 +15,10 @@ import java.util.*;
  * @author jackh
  */
 public class UpdateAddressCommand implements Command {
-
+    
+    //Mememtor save into stack
+    public Stack <Command>s1;
+    
     Vector<Xmember> xmem;
 
     public UpdateAddressCommand(Vector<Xmember> xmem) {

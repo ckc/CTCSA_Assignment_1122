@@ -7,6 +7,7 @@ package Command;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
+import java.util.Stack;
 import java.util.Vector;
 
 /**
@@ -14,7 +15,10 @@ import java.util.Vector;
  * @author jackh
  */
 public class CarryOnCommand implements Command {
-
+    
+     //Mememtor save into stack
+    public Stack <Command>s1;
+    
     private boolean contin = true;
     
     public CarryOnCommand(boolean contin) {

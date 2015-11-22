@@ -8,6 +8,7 @@ package CommandCreator;
 import Command.Command;
 import Command.ExtendMemCommand;
 import Xmem.Xmember;
+import java.util.Stack;
 import java.util.Vector;
 
 /**
@@ -17,6 +18,8 @@ import java.util.Vector;
 public class ExtendMemCommandCreator extends Creator {
 
     private Vector<Xmember> xmember;
+       //Mememtor save into stack
+        public Stack <Command>s1;
 
     public ExtendMemCommandCreator(Vector<Xmember> xmember) {
         this.xmember = xmember;
