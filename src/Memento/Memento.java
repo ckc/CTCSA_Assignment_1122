@@ -8,16 +8,30 @@ package Memento;
 import Command.Command;
 import java.util.Stack;
 
+import CommandCreator.Creator;
+import Command.Command;
+import CommandCreator.CreateMemCommandCreator;
+import CommandCreator.UpdateAddressCommandCreator;
+import CommandCreator.ShowMemCommandCreator;
+import CommandCreator.CarryOnCommandCreator;
+import CommandCreator.ExtendMemCommandCreator;
+
+import Xmem.*;
+
 /**
  *
  * @author jackh
  */
 public class Memento {
     Stack <Command>tempCommand;
-  
 
-    public Memento(Stack <Command> CommandToSave) {
-        tempCommand = CommandToSave;
+    public Memento() {
+    }
+   
+    
+    public Memento(MyCommand mycommand) {
+        tempCommand = mycommand;
+        
     }
 
     public Stack <Command>  getSavedCommand() {

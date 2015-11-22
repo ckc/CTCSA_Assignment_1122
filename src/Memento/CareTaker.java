@@ -15,24 +15,23 @@ import java.util.Vector;
  * @author jackh
  */
 public class CareTaker {
-      Vector undoList = new Vector();
-     
-         //Mememtor save into stack
-        public Stack <Command>s1;
+      
 
-    public void saveMyCommand(Stack <Command>s1){
-       Memento m1 = new Memento(s1);
-       undoList.add(m1);
+         //Mememtor save into stack
+        Stack s1 = new Stack();
+
+    public void saveMyCommand(Stack s1){
+       Memento m1 = new Memento();
+
     }
     
     public void undo(){
-        Memento m1 = (Memento)undoList.lastElement();
+        Memento m1 = (Memento)s1.lastElement();
         m1.restore();
-        undoList.removeElement(m1);
+        s1.removeElement(m1);
         
     }
-    
-        
+   
     public void redo(){
         Memento m1 = (Memento)undoList.lastElement();
         m1.restore();

@@ -1,3 +1,4 @@
+
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -26,10 +27,10 @@ import java.util.Date;
 public class CreateMemCommand implements Command {
 
     public Vector<Xmember> xmember;
-    
+
     //Mememtor save into stack
-    public Stack <Command>s1;
-    
+    public Stack<Command> s1;
+
     public String[] split1;
 
     //Only for this command use
@@ -49,19 +50,19 @@ public class CreateMemCommand implements Command {
             System.out.println("Enter Company Code (ajcs/wlts): ");
             String c = br.readLine();
             //create ajcs client
-         if ("ajcs".equals(c) || "wlts".equals(c)) {
+            if ("ajcs".equals(c) || "wlts".equals(c)) {
                 System.out.println("Enter id;type;name;address:");
                 //call create member class
                 String Cinput = br.readLine();
                 split1 = Cinput.split(";");
-        
+
                 Date date = new Date();
                 Calendar cal = Calendar.getInstance();
                 cal.add(Calendar.YEAR, 1);
                 java.util.Date expirationDate = cal.getTime();
 
                 switch (split1[1]) {
-                  
+
                     case "Pri":
 
                         PrimaryMember p1 = new PrimaryMember(split1[0], expirationDate, split1[2], split1[3]);
@@ -69,9 +70,9 @@ public class CreateMemCommand implements Command {
                         xmember.add(new MTXAdapter(p1));
                         System.out.println("New member record created. ");
                         System.out.println();
-                        
+
                         break;
-                        
+
                     case "Com":
                         CompanyMember p2 = new CompanyMember(split1[0], expirationDate, split1[2], split1[3]);
                         MTXAdapter x2 = new MTXAdapter(p2);
@@ -88,9 +89,9 @@ public class CreateMemCommand implements Command {
                         xmember.add(x3);
                         System.out.println("New member record created. ");
                         System.out.println();
-                        
+
                         break;
-                        
+
                     case "VIPF":
                         int VIPFid = Integer.parseInt(split1[0]);
                         VIP_Family p4 = new VIP_Family(VIPFid, split1[2], expirationDate, split1[3]);
@@ -98,14 +99,14 @@ public class CreateMemCommand implements Command {
                         xmember.add(x4);
                         System.out.println("New member record created. ");
                         System.out.println();
-                        
+
                         break;
 
                     default:
-                        System.out.println("Input data length wrong.");   
+                        System.out.println("Input data length wrong.");
                 }
-         }
-       } catch (Exception e) {
+            }
+        } catch (Exception e) {
             System.out.println("Input data length wrong.");
             System.exit(0);
             e.printStackTrace();

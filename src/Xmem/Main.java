@@ -16,6 +16,9 @@ import CommandCreator.ExtendMemCommandCreator;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import Memento.*;
+
+import java.util.Stack;
 
 import java.util.Vector;
 
@@ -24,10 +27,13 @@ import java.util.Vector;
  * @author jackh
  */
 public class Main {
+         public Stack s1;
 
     public static void main(String[] args) throws Exception {
         // TODO code application logic here
         Vector<Xmember> xmem = new Vector<Xmember>();
+        
+        Memento m1 = new Memento();
         
         boolean contin = true;
         boolean cont = true;
@@ -41,8 +47,7 @@ public class Main {
             new UpdateAddressCommandCreator(xmem),
             new CarryOnCommandCreator(contin),
             new ExtendMemCommandCreator(xmem),
-           
-                    };
+            };
 
         while (cont) {
             System.out.println("X Mem Management System");
@@ -58,7 +63,10 @@ public class Main {
                     cmd = Creators[0].createCmd();
                     cmd.execute();
                     Command ccocmd = Creators[3].createCmd();
-                    ccocmd.execute();
+                    ccocmd.execute(); 
+                  /*  s1.push(cmd);
+                    s1.push(ccocmd);
+                    */
                     break;
                 case "s":
                 case "S":
