@@ -16,26 +16,27 @@ import java.util.Vector;
  */
 public class UndoCommand implements Command {
 
-    Vector<Xmember> shapes;
+    Vector<Xmember> xmem;
     Stack<Action> history;
+    
     InputStreamReader is = new InputStreamReader(System.in);
     BufferedReader br = new BufferedReader(is);
     /* Shape shape; */
 
     public UndoCommand(Vector<Xmember> shapes, Stack<Action> history) {
-        this.shapes = shapes;
+        this.xmem = xmem;
         this.history = history;
     }
-
+// c | s | a | e | u | r | l | X
     public void execute() {
         try {
             Action action = history.pop();
             switch (action.getOption()) {
-           /*     case 3: 
-                    shapes.add(action.getIndex(), action.getShape());
-                    break; */
-                case 4:
-                case 5:
+                case 'c': 
+                    xmem.add(action.getIndex(), action.getShape());
+                    break; 
+                case 's':
+                case 'a':
                     /*shapes.remove(action.getShape());
                     break;*/
             }
@@ -46,10 +47,12 @@ public class UndoCommand implements Command {
 
     @Override
     public void undo() {
+        
     }
 
     @Override
     public void redo() {
+        
     }
     
 }
