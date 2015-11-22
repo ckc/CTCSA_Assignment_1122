@@ -13,6 +13,7 @@ import CommandCreator.UpdateAddressCommandCreator;
 import CommandCreator.ShowMemCommandCreator;
 import CommandCreator.CarryOnCommandCreator;
 import CommandCreator.ExtendMemCommandCreator;
+import CommandCreator.ListURDOCreator;
 import CommandCreator.RedoCommandCreator;
 import CommandCreator.UndoCommandCreator;
 import java.io.BufferedReader;
@@ -36,8 +37,7 @@ public class Main {
         // TODO code application logic here
         Vector<Xmember> xmem = new Vector<Xmember>();
         CareTaker ct = new CareTaker();
-        Memento m1 = new Memento();
-        
+
         boolean contin = true;
         boolean cont = true;
 
@@ -51,7 +51,8 @@ public class Main {
             new CarryOnCommandCreator(contin),
             new ExtendMemCommandCreator(xmem),
             new UndoCommandCreator(ct),
-            new RedoCommandCreator(ct)
+            new RedoCommandCreator(ct),
+            new ListURDOCreator(ct)
             };
 
         while (cont) {
@@ -106,7 +107,9 @@ public class Main {
                     break;
                 case "l":
                 case "L":
+                    cmd = Creators[7].createCmd();
                     System.out.println("l = list undo/redo");
+                    cmd.execute();
                     break;
                 case "X":
                 case "x":

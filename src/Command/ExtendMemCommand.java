@@ -42,6 +42,7 @@ public class ExtendMemCommand implements Command {
                 for (Xmember x1 : xmember) {
                             if (u2.equals( x1.getId())) {
                                
+                                this.date = x1.getGoodTill();
                                 Date goodTill = x1.getGoodTill();
         Calendar cal = Calendar.getInstance();
     cal.setTime(goodTill);
@@ -50,13 +51,12 @@ public class ExtendMemCommand implements Command {
 
         java.util.Date expirationDate = cal.getTime();
 
-        dateFormat.format(expirationDate);
                                x1.setGoodTill(expirationDate);
                                 System.out.println("Membership extended: ");
                                 
                                 System.out.println(dateFormat.format(x1.getGoodTill())+"\t"+x1.getId()+"\t"+x1.getType()+"\t"+x1.getPostal());
                                 this.x1 = x1;
-                                this.date = x1.getGoodTill();
+                                
                                 break;
                             }else{
                                 System.out.println("Some Unexpected error");
@@ -65,12 +65,19 @@ public class ExtendMemCommand implements Command {
         }
     }
 
+    @Override
     public void undo() {
         x1.setGoodTill(this.date);
     }
 
+    @Override
     public void redo() {
         undo();
+    }
+
+    @Override
+    public String toString() {
+        return "Extend " + x1.getId();
     }
 
 }

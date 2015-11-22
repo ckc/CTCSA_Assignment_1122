@@ -1,6 +1,7 @@
 package CommandCreator;
 
 import Command.Command;
+import Command.RedoCommand;
 import Command.UndoCommand;
 import Memento.CareTaker;
 import Xmem.Xmember;
@@ -20,7 +21,7 @@ public class RedoCommandCreator extends Creator {
     }
 @Override
     public Command createCmd() {
-        Command c = new UndoCommand(ct);
+        Command c = new RedoCommand(ct);
         return c;
     }
 

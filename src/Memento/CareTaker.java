@@ -1,12 +1,7 @@
 package Memento;
 
 import Command.Command;
-import Command.CreateMemCommand;
-import Command.ExtendMemCommand;
-import Command.UpdateAddressCommand;
-import Xmem.Xmember;
 import java.util.Stack;
-import java.util.Vector;
 
 /**
  *
@@ -19,15 +14,14 @@ public class CareTaker {
         Stack<Memento> undo = new Stack();
         Stack<Memento> redo = new Stack();
         Command cmd;
-        Memento memento = new Memento();
+        Memento memento;
 
     public void saveMyCommand(Command cmd){
-      if(cmd instanceof CreateMemCommand || cmd instanceof ExtendMemCommand || cmd instanceof UpdateAddressCommand){
         this.cmd = cmd;
         memento = new Memento(cmd);
        undo.push(memento);
        //redo.clear();
-      }
+      
     }
 
     public Command getCmd() {
@@ -38,15 +32,24 @@ public class CareTaker {
     public void undo(){
         Memento m1 = (Memento)undo.lastElement();
         m1.restore();
-        undo.removeElement(m1);
         redo.push(m1);
+        undo.removeElement(m1);
     }
    
     public void redo(){
         Memento m1 = (Memento)redo.lastElement();
         m1.restore();
-        redo.removeElement(m1);
         undo.push(m1);
+        redo.removeElement(m1);
+        
+    }
+
+    public Stack<Memento> getUndo() {
+        return undo;
+    }
+
+    public Stack<Memento> getRedo() {
+        return redo;
     }
       
 }

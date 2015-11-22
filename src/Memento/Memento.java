@@ -6,49 +6,31 @@
 package Memento;
 
 import Command.Command;
-import java.util.Stack;
-
-import CommandCreator.Creator;
-import Command.Command;
-import CommandCreator.CreateMemCommandCreator;
-import CommandCreator.UpdateAddressCommandCreator;
-import CommandCreator.ShowMemCommandCreator;
-import CommandCreator.CarryOnCommandCreator;
-import CommandCreator.ExtendMemCommandCreator;
-
-import Xmem.*;
 
 /**
  *
  * @author jackh
  */
 public class Memento {
-    Stack <Command>tempCommand = new Stack<>();
-    Stack <Xmember> tempXmember = new Stack<>();
-
-    public Memento() {
-    }
-   
-    public Memento(Command mycommand) {
-        tempCommand.push(mycommand);
+    private Command cmd;
+    
+    public Memento(Command cmd) {
+    this.cmd = cmd;
        
     }
 
-    public Command getSavedCommand() {
-        return tempCommand.pop();
-    }
-
-    public Xmember getTempXmember() {
-        return tempXmember.pop();
-    }
-    
-    
+   
     public void restore() {
-        getSavedCommand().undo();
+       cmd.undo();
     }
     
     public void redo(){
-        getSavedCommand().redo();
+        cmd.redo();
+    }
+
+    @Override
+    public String toString() {
+        return cmd.toString();
     }
 
 }

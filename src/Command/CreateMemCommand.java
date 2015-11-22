@@ -8,7 +8,6 @@ import Xmem.CTXAdapter;
 import Xmem.MTXAdapter;
 import Xmem.Xmember;
 import java.io.*;
-import java.text.SimpleDateFormat;
 import java.util.*;
 import Memento.CareTaker;
 
@@ -122,4 +121,10 @@ public class CreateMemCommand implements Command {
         xmember.add(x1);
     }
 
+    @Override
+    public String toString() {
+        return "Create " + x1.getId();
+    }
+
+    
 }

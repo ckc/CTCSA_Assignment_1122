@@ -64,12 +64,18 @@ this.address=x1.getPostal();
         } 
     }
 
+    @Override
     public void undo() {
         xm.setPostal(address);
     }
-
+@Override
     public void redo() {
         undo();
+    }
+
+    @Override
+    public String toString() {
+        return "Update Address " +xm.getId();
     }
 
 }
