@@ -24,6 +24,7 @@ public class CreateMemCommand implements Command {
 
     //Only for this command use
     private boolean contin = true;
+    Xmember x1;
 
     public CreateMemCommand(Vector<Xmember> xmem) {
         this.xmember = xmem;
@@ -46,54 +47,53 @@ public class CreateMemCommand implements Command {
         
                 Date date = new Date();
                 Calendar cal = Calendar.getInstance();
-                cal.setTime(date);
                 cal.add(Calendar.YEAR, 1);
+                java.util.Date expirationDate = cal.getTime();
 
                 switch (split1[1]) {
                   
                     case "Pri":
 
-                        PrimaryMember p1 = new PrimaryMember(split1[0], date, split1[2], split1[3]);
+                        PrimaryMember p1 = new PrimaryMember(split1[0], expirationDate, split1[2], split1[3]);
                         //uper.XMember x1 = new MTXAdapter(p1);
                         xmember.add(new MTXAdapter(p1));
                         System.out.println("New member record created. ");
                         System.out.println();
                         
-                          
                         break;
+                        
                     case "Com":
-                        CompanyMember p2 = new CompanyMember(split1[0], date, split1[2], split1[3]);
+                        CompanyMember p2 = new CompanyMember(split1[0], expirationDate, split1[2], split1[3]);
                         MTXAdapter x2 = new MTXAdapter(p2);
                         xmember.add(x2);
                         System.out.println("New member record created. ");
                         System.out.println();
-                        
-                        
+
                         break;
 
                     case "VIP":
                         int VIPid = Integer.parseInt(split1[0]);
-                        VIP p3 = new VIP(VIPid, split1[2], date, split1[3]);
+                        VIP p3 = new VIP(VIPid, split1[2], expirationDate, split1[3]);
                         CTXAdapter x3 = new CTXAdapter(p3);
                         xmember.add(x3);
                         System.out.println("New member record created. ");
                         System.out.println();
+                        
                         break;
+                        
                     case "VIPF":
                         int VIPFid = Integer.parseInt(split1[0]);
-                        VIP_Family p4 = new VIP_Family(VIPFid, split1[2], date, split1[3]);
+                        VIP_Family p4 = new VIP_Family(VIPFid, split1[2], expirationDate, split1[3]);
                         CTXAdapter x4 = new CTXAdapter(p4);
                         xmember.add(x4);
                         System.out.println("New member record created. ");
                         System.out.println();
+                        
                         break;
 
                     default:
-                        System.out.println("Input data length wrong.");
-                    
+                        System.out.println("Input data length wrong.");   
                 }
-            
-         
          }
        } catch (Exception e) {
             System.out.println("Input data length wrong.");

@@ -68,11 +68,12 @@ public abstract class Member {
     public void setGoodTill(int i ) {
         Date date = new Date();
         Calendar cal = Calendar.getInstance();
-
-        cal.add(Calendar.YEAR,i);
-
+         cal.add(Calendar.YEAR, i);
+        
         SimpleDateFormat dateFormat = new SimpleDateFormat("dd-MM-yyyy");
+        
         dateFormat.format(date);
+        
         this.goodTill = date;
 
     }

@@ -11,4 +11,7 @@ package Xmem;
  */
 public abstract class Creator {
     public abstract Command createCmd();
+        
+    public abstract Command createSpecialCmd();
+
 }

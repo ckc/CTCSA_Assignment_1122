@@ -51,19 +51,20 @@ public class MTXAdapter implements Xmember {
         return m1.getPostal();
     }
     public void setPostal(String postalAddress) {
-       int NewAddress =Integer.parseInt(postalAddress);
-        m1.setGoodTill(NewAddress);
+      
+        m1.setPostal(postalAddress);
         //m1.setPostal(postalAddress);
-        
     }
+    
+    
     public Date getGoodTill(){
       return m1.getGoodTill();
     }
-    public void setGoodTill(int i) {
-       m1.setGoodTill(i);
-       
+    public void setGoodTill(int i ) {
+       m1.setGoodTill(i);       
     }
-
+    
+    
     public String toString() {
         return  " " + getGoodTill() + " " + getId() + " " + getType() + " " + getName() + " " + getPostal();
     }

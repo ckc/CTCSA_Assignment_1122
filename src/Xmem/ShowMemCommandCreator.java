@@ -14,16 +14,26 @@ import java.util.Vector;
  */
 public class ShowMemCommandCreator extends Creator {
 
-    private Vector<Xmember> xmem;
+    private Vector<Xmember> xmem;    
+    private String id ;
 
     public ShowMemCommandCreator(Vector<Xmember> xmem) {
         this.xmem = xmem;
     }
-
+    
+     public ShowMemCommandCreator(String id) {
+        this.id = id;
+    }
+    
     @Override
     public Command createCmd() {
         Command c = new ShowMemCommand(xmem);
         return c;
+      
+    }
+    public Command createSpecialCmd(){
+        Command SEM = new ShowMemCommand(id);
+        return SEM;
     }
 
 }

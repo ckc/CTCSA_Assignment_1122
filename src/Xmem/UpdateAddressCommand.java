@@ -34,17 +34,25 @@ public class UpdateAddressCommand implements Command {
                 System.out.println("Enter id (*999 to show all): ");
                 Command Scmd = new ShowMemCommand(xmem);
                 Scmd.execute();
+                
+                System.out.println();
+                
                 break;
             default:
                 
                 for (Xmember x1 : xmem) {
-                    if (u2.equals( x1.getId())) {
-                        System.out.println("Enter address: ");
-                        String NewAddress = br.readLine();
-                        x1.setPostal(NewAddress);
-                        System.out.println("Member address updated.");           
-                        break;
-                    }
+                            if (u2.equals( x1.getId())) {
+                                System.out.println("Enter address: ");
+                                String NewAddress = br.readLine();
+                                x1.setPostal(NewAddress);
+                                System.out.println("Member address updated.");
+
+                                System.out.println();
+
+                                break;
+                            }else{
+                                System.out.println();
+                            }
                 }
         } 
     }

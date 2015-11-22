@@ -53,7 +53,9 @@ public abstract class Client {
         cal.add(Calendar.YEAR, i);
         
         SimpleDateFormat dateFormat = new SimpleDateFormat("dd-MM-yyyy");
+        
         dateFormat.format(date);
+        
         this.expiryDate = date;
     }
 

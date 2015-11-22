@@ -24,4 +24,9 @@ public class CarryOnCommandCreator  extends Creator {
         Command c = new CarryOnCommand(contin);
         return c;
     }
+    @Override
+    public Command createSpecialCmd() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+    
 }

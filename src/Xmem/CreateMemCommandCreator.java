@@ -26,4 +26,10 @@ public class CreateMemCommandCreator extends Creator {
         Command c = new CreateMemCommand(xmember);
         return c;
     }
+
+    @Override
+    public Command createSpecialCmd() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+    
 }

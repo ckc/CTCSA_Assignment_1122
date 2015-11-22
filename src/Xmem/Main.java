@@ -21,6 +21,7 @@ public class Main {
     public static void main(String[] args) throws Exception {
         // TODO code application logic here
         Vector<Xmember> xmem = new Vector<Xmember>();
+        
         boolean contin = true;
         boolean cont = true;
 
@@ -32,7 +33,9 @@ public class Main {
             new ShowMemCommandCreator(xmem),
             new UpdateAddressCommandCreator(xmem),
             new CarryOnCommandCreator(contin),
-            new ExtendMemCommandCreator(xmem),};
+            new ExtendMemCommandCreator(xmem),
+           
+                    };
 
         while (cont) {
             System.out.println("X Mem Management System");
@@ -53,7 +56,7 @@ public class Main {
                 case "s":
                 case "S":
                     cmd = Creators[1].createCmd();
-                    cmd.execute();
+                    cmd.execute();  
                     break;
                 case "a":
                 case "A":
@@ -65,6 +68,7 @@ public class Main {
                     cmd = Creators[4].createCmd();
                     cmd.execute();
                     break;
+ 
                 case "u":
                 case "U":
                     System.out.println(" u = undo");

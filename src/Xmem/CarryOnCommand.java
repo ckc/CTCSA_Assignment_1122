@@ -30,9 +30,11 @@ public class CarryOnCommand implements Command {
         String question = br.readLine();
         if (question.equals("y")) {
             contin = true;
-        } else {
+        } else if(question.equals("n")){
             contin = false;
             System.exit(0);
+        }else{
+            System.out.println("Unexpected data type.");
         }
     }
 
